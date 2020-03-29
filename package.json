@@ -64,6 +64,8 @@
     "eslint-plugin-react-hooks": "^3.0.0",
     "husky": "^4.2.3",
     "lint-staged": "^10.0.9",
-    "react-test-renderer": "^16.13.1"
+    "prettier": "^2.0.2",
+    "react-test-renderer": "^16.13.1",
+    "typescript": "^3.8.3"
   }
 }

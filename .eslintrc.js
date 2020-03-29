@@ -1,4 +1,10 @@
 module.exports = {
+  env: {
+    "browser": true,
+    "es6": true,
+    "node": true,
+    "jest": true
+  },
   extends: [
     'react-app',
     'airbnb',
@@ -17,5 +23,6 @@ module.exports = {
         semi: true,
       },
     ],
+    'import/no-extraneous-dependencies': [1, {}]
   },
 };
