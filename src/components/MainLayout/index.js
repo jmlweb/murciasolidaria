@@ -2,16 +2,17 @@ import React from 'react';
 import { Grid } from '@chakra-ui/core';
 import PT from 'prop-types';
 
-const HeaderContentLayout = ({ header, content }) => (
+import MainHeader from '../MainHeader';
+
+const HeaderContentLayout = ({ children }) => (
   <Grid gridTemplateRows="auto 1fr" gridTemplateColumns="1fr" minHeight="100vh">
-    {header}
-    {content}
+    <MainHeader />
+    <main>{children}</main>
   </Grid>
 );
 
 HeaderContentLayout.propTypes = {
-  header: PT.node.isRequired,
-  content: PT.node.isRequired,
+  children: PT.node.isRequired,
 };
 
 export default HeaderContentLayout;

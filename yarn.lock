@@ -9766,6 +9766,11 @@ raf@^3.4.1:
   dependencies:
     performance-now "^2.1.0"
 
+ramda@^0.27.0:
+  version "0.27.0"
+  resolved "https://registry.yarnpkg.com/ramda/-/ramda-0.27.0.tgz#915dc29865c0800bf3f69b8fd6c279898b59de43"
+  integrity sha512-pVzZdDpWwWqEVVLshWUHjNwuVP7SfcmPraYuqocJp1yo2U1R7P+5QAfDhdItkuoGqIBnBYrtPp7rEPqDn9HlZA==
+
 randombytes@^2.0.0, randombytes@^2.0.1, randombytes@^2.0.5:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/randombytes/-/randombytes-2.1.0.tgz#df6f84372f0270dc65cdf6291349ab7a473d4f2a"
@@ -10025,6 +10030,11 @@ reactfire@^2.0.3:
   dependencies:
     rxfire "^3.6.3"
     rxjs "^6.4.0"
+
+reactponsive@^1.0.8:
+  version "1.0.8"
+  resolved "https://registry.yarnpkg.com/reactponsive/-/reactponsive-1.0.8.tgz#1bf5ea5164a1ac7bf52494a6a5ebe6c78fe76099"
+  integrity sha512-jnKTH34t79ZYqyOj1foIoSfTZTncT9NVr7OheFqwY3nzOev0I4MNNUIi+dEw8X7vSTPr1Z7WKsX7rBgOw2oSEA==
 
 read-pkg-up@^2.0.0:
   version "2.0.0"
