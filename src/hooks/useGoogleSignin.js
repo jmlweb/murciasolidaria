@@ -1,4 +1,4 @@
-import { useAuth } from 'reactfire';
+import { useAuth, useFirestore } from 'reactfire';
 import firebase from 'firebase/app';
 import 'firebase/auth';
 import { useToggler } from 'reactponsive';
@@ -13,6 +13,7 @@ const useGoogleSignin = (cb) => {
   const notify = useAlertNotification({
     title: 'Ha habido un problema al intentar loguearse.',
   });
+  const firestore = useFirestore();
 
   const getSignInResult = () =>
     isDesktop
@@ -22,6 +23,13 @@ const useGoogleSignin = (cb) => {
   const onClick = async () => {
     try {
       await getSignInResult();
+      const { currentUser } = auth;
+      await firestore.collection('users/').doc(currentUser.uid).set({
+        name: currentUser.displayName,
+        email: currentUser.email,
+        isAdmin: false,
+      });
+
       if (cb) {
         cb();
       }
