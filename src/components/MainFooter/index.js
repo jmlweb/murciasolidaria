@@ -23,7 +23,9 @@ const MainFooter = () => (
         <Stack isInline spacing={4} alignItems="center">
           <Text>
             Organiza:{' '}
-            <CommonLink href="https://nido.ai">Nido Robotics</CommonLink>
+            <CommonLink href="https://nidorobotics.com">
+              Nido Robotics
+            </CommonLink>
           </Text>
           <Text>
             Desarrolla:{' '}
