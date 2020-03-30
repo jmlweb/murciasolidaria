@@ -9,6 +9,7 @@ Este proyecto usa las siguientes tecnologías como base:
 - [React](https://reactjs.org/)
 - [Chakra UI](https://chakra-ui.com/)
 - [Firebase](https://firebase.google.com/)
+- [Formik](https://jaredpalmer.com/formik)
 
 ## Colaboradores
 
