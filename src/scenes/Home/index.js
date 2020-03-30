@@ -68,7 +68,7 @@ const Home = () => {
         </Box>
       </Container>
       <Container maxWidth="4xl">
-        <Stack my={8} spacing={6}>
+        <Stack my={[8, 10]} spacing={6}>
           <Text fontSize={['lg', 'lg', 'xl']}>
             Estas últimas semanas estamos siendo testigos de uno de los peores
             episodios a los que se ha enfrentado la humanidad,{' '}
