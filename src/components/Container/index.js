@@ -3,10 +3,10 @@ import { Box } from '@chakra-ui/core';
 
 const Container = (props) => (
   <Box
-    {...props}
-    px={[3, 3, 4]}
-    width="100%"
     maxWidth="containers.xl"
+    {...props}
+    px={[3, 4, 6]}
+    width="100%"
     margin="0 auto"
   />
 );

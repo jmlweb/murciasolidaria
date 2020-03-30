@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { lazy } from 'react';
 import { Flex } from '@chakra-ui/core';
 import { AuthCheck } from 'reactfire';
+import { Link } from 'react-router-dom';
 
 import Container from '../Container';
 import Logo from '../Logo';
-import GoogleSignIn from '../GoogleSignin';
+
+const GoogleSignin = lazy(() => import('../GoogleSignin'));
+const UserMenu = lazy(() => import('../UserMenu'));
 
 const MainHeader = () => (
   <Container>
@@ -12,14 +15,14 @@ const MainHeader = () => (
       as="header"
       justifyContent="space-between"
       alignItems="center"
-      height="60px"
+      height={['60px', '80px', '120px']}
     >
-      <div>
+      <Link to="/">
         <Logo />
-      </div>
+      </Link>
       <div>
-        <AuthCheck fallback={<GoogleSignIn />}>
-          <div>U</div>
+        <AuthCheck fallback={<GoogleSignin />}>
+          <UserMenu />
         </AuthCheck>
       </div>
     </Flex>
