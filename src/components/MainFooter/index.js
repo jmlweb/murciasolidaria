@@ -1,6 +1,7 @@
 import React from 'react';
-import { Box, Flex, Link } from '@chakra-ui/core';
+import { Flex, Link, Text, Stack } from '@chakra-ui/core';
 
+import CommonLink from '../CommonLink';
 import Container from '../Container';
 import Logo from '../Logo';
 
@@ -15,11 +16,21 @@ const MainFooter = () => (
       justifyContent="space-between"
       alignItems="center"
     >
-      <Box>
+      <Stack isInline spacing={8} alignItems="center">
         <Link href="/">
           <Logo size="sm" />
         </Link>
-      </Box>
+        <Stack isInline spacing={4} alignItems="center">
+          <Text>
+            Organiza:{' '}
+            <CommonLink href="https://nido.ai">Nido Robotics</CommonLink>
+          </Text>
+          <Text>
+            Desarrolla:{' '}
+            <CommonLink href="https://jmlweb.es">José Manuel Lucas</CommonLink>
+          </Text>
+        </Stack>
+      </Stack>
     </Flex>
   </Container>
 );
