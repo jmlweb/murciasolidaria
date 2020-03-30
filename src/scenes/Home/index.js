@@ -1,5 +1,13 @@
 import React, { Suspense, lazy } from 'react';
-import { Box, Button, Flex, Heading, Text, Stack } from '@chakra-ui/core';
+import {
+  Box,
+  Button,
+  Flex,
+  Heading,
+  Text,
+  Stack,
+  useTheme,
+} from '@chakra-ui/core';
 import { Link as ReactRouterLink, useHistory } from 'react-router-dom';
 import { FiAlertOctagon } from 'react-icons/fi';
 import { AiOutlineGoogle } from 'react-icons/ai';
@@ -20,10 +28,11 @@ const IntroImage = lazy(() => import('./IntroImage'));
 const Home = () => {
   const history = useHistory();
   const onClick = useGoogleSignin(() => history.push('/request-material'));
+  const theme = useTheme();
   return (
     <MainLayout>
       <Container>
-        <Box position="relative">
+        <Box position="relative" maxWidth="100%">
           <Suspense fallback={<Box height={['auto', 'auto', '656px']} />}>
             <IntroImage />
           </Suspense>
@@ -35,7 +44,11 @@ const Home = () => {
             alignItems="center"
             color="white"
           >
-            <Box maxWidth="containers.lg" p={6} textAlign="center">
+            <Box
+              maxWidth={[`calc(100vw - ${theme.space[6]})`, 'containers.lg']}
+              p={6}
+              textAlign="center"
+            >
               <Heading as="h2" mb={2}>
                 El COVID-19 lo paramos entre todos
               </Heading>

@@ -16,6 +16,8 @@ const MainHeader = () => (
       justifyContent="space-between"
       alignItems="center"
       height={['60px', '80px', '120px']}
+      width="100%"
+      overflow="hidden"
     >
       <Link to="/">
         <Logo />
