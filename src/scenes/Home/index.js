@@ -1,23 +1,12 @@
-import React from 'react';
-import {
-  Box,
-  Button,
-  Flex,
-  Heading,
-  Image,
-  Text,
-  Stack,
-} from '@chakra-ui/core';
+import React, { Suspense, lazy } from 'react';
+import { Box, Button, Flex, Heading, Text, Stack } from '@chakra-ui/core';
 import { Link as ReactRouterLink, useHistory } from 'react-router-dom';
 import { FiAlertOctagon } from 'react-icons/fi';
 import { AiOutlineGoogle } from 'react-icons/ai';
-import { useMapper } from 'reactponsive';
 import { AuthCheck } from 'reactfire';
 
 import { CommonLink, Container, MainLayout } from '../../components';
 import { useGoogleSignin } from '../../hooks';
-import introSmImgSrc from './nido-laser-sm.jpg';
-import introImgSrc from './nido-laser.jpg';
 
 const fillProps = {
   top: 0,
@@ -26,27 +15,18 @@ const fillProps = {
   bottom: 0,
 };
 
+const IntroImage = lazy(() => import('./IntroImage'));
+
 const Home = () => {
-  const introImg = useMapper({
-    default: introSmImgSrc,
-    md: introSmImgSrc,
-    lg: introImgSrc,
-  });
   const history = useHistory();
   const onClick = useGoogleSignin(() => history.push('/request-material'));
   return (
     <MainLayout>
       <Container>
         <Box position="relative">
-          <Image
-            src={introImg}
-            alt="Cortadora láser Nido Robotics"
-            objectFit="cover"
-            objectPosition="center center"
-            position={['absolute', 'absolute', 'relative']}
-            top={0}
-            height={['100%', '100%', 'auto']}
-          />
+          <Suspense fallback={null}>
+            <IntroImage />
+          </Suspense>
           <Box position="absolute" {...fillProps} bg="teal.900" opacity={0.8} />
           <Flex
             position={['relative', 'relative', 'absolute']}
