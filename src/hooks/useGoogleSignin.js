@@ -24,11 +24,15 @@ const useGoogleSignin = (cb) => {
     try {
       await getSignInResult();
       const { currentUser } = auth;
-      await firestore.collection('users/').doc(currentUser.uid).set({
-        name: currentUser.displayName,
-        email: currentUser.email,
-        isAdmin: false,
-      });
+      const userRef = firestore.collection('users/').doc(currentUser.uid);
+      const userDoc = await userRef.get();
+      if (!userDoc.exists) {
+        await userRef.set({
+          name: currentUser.displayName,
+          email: currentUser.email,
+          isAdmin: false,
+        });
+      }
 
       if (cb) {
         cb();
