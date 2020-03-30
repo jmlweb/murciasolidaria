@@ -21,6 +21,7 @@ const Home = () => {
       position={['absolute', 'absolute', 'relative']}
       top={0}
       height={['100%', '100%', '656px']}
+      width="full"
     />
   );
 };

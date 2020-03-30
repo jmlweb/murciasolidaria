@@ -117,6 +117,26 @@ const Home = () => {
           </Text>
         </Stack>
       </Container>
+      <Flex justifyContent="center" mb={8}>
+        <AuthCheck
+          fallback={
+            <Button size="lg" onClick={onClick} variantColor="red">
+              <Box as={AiOutlineGoogle} display="inline-block" mr={1} />
+              Accede para solicitar material
+            </Button>
+          }
+        >
+          <Button
+            size="lg"
+            as={ReactRouterLink}
+            to="/request-material"
+            variantColor="teal"
+          >
+            <Box as={FiAlertOctagon} display="inline-block" mr={1} />
+            Solicitar material
+          </Button>
+        </AuthCheck>
+      </Flex>
     </MainLayout>
   );
 };
