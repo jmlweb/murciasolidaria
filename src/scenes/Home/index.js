@@ -24,7 +24,7 @@ const Home = () => {
     <MainLayout>
       <Container>
         <Box position="relative">
-          <Suspense fallback={null}>
+          <Suspense fallback={<Box height={['auto', 'auto', '656px']} />}>
             <IntroImage />
           </Suspense>
           <Box position="absolute" {...fillProps} bg="teal.900" opacity={0.8} />

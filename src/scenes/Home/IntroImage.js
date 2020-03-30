@@ -20,7 +20,7 @@ const Home = () => {
       objectPosition="center center"
       position={['absolute', 'absolute', 'relative']}
       top={0}
-      height={['100%', '100%', 'auto']}
+      height={['100%', '100%', '656px']}
     />
   );
 };
