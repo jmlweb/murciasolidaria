@@ -4,8 +4,10 @@ import styled from '@emotion/styled';
 
 import { useMapper } from 'reactponsive';
 
-import introSmImgSrc from './nido-laser-sm.jpg';
-import introImgSrc from './nido-laser.jpg';
+const desktopImg =
+  'https://res.cloudinary.com/murciasolidaria/image/upload/f_auto,fl_progressive/v1585682634/nido-laser_wtpmaq.jpg';
+const mobileImg =
+  'https://res.cloudinary.com/murciasolidaria/image/upload/c_scale,f_auto,fl_progressive,w_509/v1585682634/nido-laser-sm_m0xlek.jpg';
 
 const SImage = styled(Image)`
   overflow-x: scroll;
@@ -14,9 +16,8 @@ const SImage = styled(Image)`
 
 const Home = () => {
   const introImg = useMapper({
-    default: introSmImgSrc,
-    md: introSmImgSrc,
-    lg: introImgSrc,
+    default: mobileImg,
+    lg: desktopImg,
   });
   return (
     <SImage
