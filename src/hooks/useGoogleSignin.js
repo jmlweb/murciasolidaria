@@ -1,6 +1,6 @@
+import { useCallback } from 'react';
 import { useAuth, useFirestore } from 'reactfire';
 import firebase from 'firebase/app';
-import 'firebase/auth';
 import { useToggler } from 'reactponsive';
 import useAlertNotification from './useAlertNotification';
 
@@ -15,24 +15,31 @@ const useGoogleSignin = (cb) => {
   });
   const firestore = useFirestore();
 
-  const getSignInResult = () =>
-    isDesktop
-      ? auth.signInWithPopup(provider)
-      : auth.signInWithRedirect(provider);
+  const updateUser = useCallback(async () => {
+    const { currentUser } = auth;
+    const userRef = firestore.collection('users/').doc(currentUser.uid);
+    const userDoc = await userRef.get();
+    if (!userDoc.exists) {
+      await userRef.set({
+        name: currentUser.displayName,
+        email: currentUser.email,
+        isAdmin: false,
+      });
+    }
+  }, [firestore, auth]);
 
-  const onClick = async () => {
+  const getSignInResult = useCallback(
+    () =>
+      isDesktop
+        ? auth.signInWithPopup(provider)
+        : auth.signInWithRedirect(provider),
+    [isDesktop, auth],
+  );
+
+  const onClick = useCallback(async () => {
     try {
       await getSignInResult();
-      const { currentUser } = auth;
-      const userRef = firestore.collection('users/').doc(currentUser.uid);
-      const userDoc = await userRef.get();
-      if (!userDoc.exists) {
-        await userRef.set({
-          name: currentUser.displayName,
-          email: currentUser.email,
-          isAdmin: false,
-        });
-      }
+      await updateUser();
 
       if (cb) {
         cb();
@@ -42,7 +49,7 @@ const useGoogleSignin = (cb) => {
         description: e.message,
       });
     }
-  };
+  }, [cb, getSignInResult, notify, updateUser]);
 
   return onClick;
 };

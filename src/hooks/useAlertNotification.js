@@ -1,3 +1,4 @@
+import { useCallback } from 'react';
 import { useToast } from '@chakra-ui/core';
 
 const DEFAULT_OPTIONS = {
@@ -8,16 +9,21 @@ const DEFAULT_OPTIONS = {
   position: 'top-right',
 };
 
-const useAlertNotification = (globalConf = {}) => {
+const emptyObject = {};
+
+const useAlertNotification = (globalConf = emptyObject) => {
   const toast = useToast();
-  return (localConf = {}) => {
-    const conf = {
-      ...DEFAULT_OPTIONS,
-      ...globalConf,
-      ...localConf,
-    };
-    return toast(conf);
-  };
+  return useCallback(
+    (localConf = emptyObject) => {
+      const conf = {
+        ...DEFAULT_OPTIONS,
+        ...globalConf,
+        ...localConf,
+      };
+      return toast(conf);
+    },
+    [globalConf, toast],
+  );
 };
 
 export default useAlertNotification;

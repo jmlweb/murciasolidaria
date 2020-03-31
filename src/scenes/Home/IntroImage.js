@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { Image } from '@chakra-ui/core';
 import styled from '@emotion/styled';
 
@@ -14,7 +14,7 @@ const SImage = styled(Image)`
   -webkit-overflow-scrolling: touch;
 `;
 
-const Home = () => {
+const IntroImage = () => {
   const introImg = useMapper({
     default: mobileImg,
     lg: desktopImg,
@@ -34,4 +34,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default memo(IntroImage);
