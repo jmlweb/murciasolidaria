@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Flex } from '@chakra-ui/core';
+import { Box, Flex, Link } from '@chakra-ui/core';
 import PT from 'prop-types';
 
 import { CommonLink } from '../../components';
@@ -51,7 +51,11 @@ const DataTable = ({
                 <Td fontSize="sm">
                   <DateTime seconds={item.createdAt.seconds} />
                 </Td>
-                <Td>{item.name}</Td>
+                <Td>
+                  <Box as="strong" fontWeight="600">
+                    {item.name}
+                  </Box>
+                </Td>
                 <Td fontSize="sm">
                   <CommonLink
                     title="Enviar email"
@@ -60,9 +64,15 @@ const DataTable = ({
                     {item.email}
                   </CommonLink>
                 </Td>
-                <Td fontSize="sm">{item.phone}</Td>
+                <Td fontSize="sm">
+                  <Link href={`tel:${item.phone}`}>{item.phone}</Link>
+                </Td>
                 <Td>{item.org}</Td>
-                <Td textAlign="center">{item.qty}</Td>
+                <Td textAlign="center">
+                  <Box as="strong" color="orange.500">
+                    {item.qty}
+                  </Box>
+                </Td>
                 <Td textAlign="center">
                   <PriorityTag priority={item.priority} />
                 </Td>
