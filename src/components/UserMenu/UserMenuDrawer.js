@@ -14,7 +14,13 @@ import {
   Link,
   Stack,
 } from '@chakra-ui/core';
-import { FiActivity, FiUnlock, FiHeart, FiAlertOctagon } from 'react-icons/fi';
+import {
+  FiActivity,
+  FiUnlock,
+  FiHeart,
+  FiAlertOctagon,
+  FiSettings,
+} from 'react-icons/fi';
 import { Link as RouterLink } from 'react-router-dom';
 import PT from 'prop-types';
 
@@ -30,7 +36,7 @@ LinkWithIcon.propTypes = {
   children: PT.node.isRequired,
 };
 
-const UserMenu = ({ btnRef, onClose, isOpen, onSignOut, name }) => (
+const UserMenu = ({ btnRef, onClose, isOpen, onSignOut, name, isAdmin }) => (
   <Drawer
     isOpen={isOpen}
     placement="right"
@@ -43,6 +49,11 @@ const UserMenu = ({ btnRef, onClose, isOpen, onSignOut, name }) => (
       <DrawerHeader mt={8}>{name}</DrawerHeader>
       <DrawerBody as={Flex} alignItems="center" justifyContent="center">
         <Stack spacing={6}>
+          {isAdmin && (
+            <LinkWithIcon to="/dashboard" icon={FiSettings}>
+              Panel de control
+            </LinkWithIcon>
+          )}
           <Flex alignItems="center">
             <LinkWithIcon to="/" icon={FiActivity} isDisabled mr={2}>
               Mis Solicitudes
@@ -71,6 +82,7 @@ const UserMenu = ({ btnRef, onClose, isOpen, onSignOut, name }) => (
 
 UserMenu.defaultProps = {
   name: '',
+  isAdmin: false,
 };
 
 UserMenu.propTypes = {
@@ -79,6 +91,7 @@ UserMenu.propTypes = {
   isOpen: PT.bool.isRequired,
   onSignOut: PT.func.isRequired,
   name: PT.string,
+  isAdmin: PT.bool,
 };
 
 export default UserMenu;

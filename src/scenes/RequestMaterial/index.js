@@ -2,6 +2,7 @@ import React from 'react';
 import { AuthCheck, useUser, useFirestore } from 'reactfire';
 import { propOr } from 'ramda';
 import { Heading } from '@chakra-ui/core';
+import firebase from 'firebase/app';
 
 import { Container, MainLayout, NeedSignInAlert } from '../../components';
 import { useAlertNotification } from '../../hooks';
@@ -14,11 +15,18 @@ const RequestMaterialContent = () => {
   const name = safeProp('displayName', user);
   const email = safeProp('email', user);
   const phone = safeProp('phoneNumber', user);
+  const uid = safeProp('uid', user);
   const firestore = useFirestore();
   const notify = useAlertNotification();
   const onSubmit = async (values, { setSubmitting, resetForm }) => {
     try {
-      await firestore.collection('material-requests').add(values);
+      await firestore.collection('material-requests').add({
+        ...values,
+        createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+        uid,
+        loggedInEmai: email,
+        status: 'requested',
+      });
       notify({
         title: 'La petición se ha creado correctamente',
         description: 'Recibirás una respuesta lo antes posible',

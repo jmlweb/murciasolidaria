@@ -1,10 +1,24 @@
 rules_version = '2';
 service cloud.firestore {
 	match /databases/{database}/documents {
+
+  	function isLogged() {
+    	return request.auth.uid != null;
+    }
+
+    function isAdmin() {
+      return isLogged() && get(/databases/$(database)/documents/users/$(request.auth.uid)).data.isAdmin == true;
+    }
+
   	match /users/{user_id} {
-      allow read: if true;
-      allow create: if request.auth.uid == user_id;
-      allow update: if false;
+      allow read, update: if request.auth.uid == user_id || isAdmin();
+      allow create: if isLogged();
+    }
+    match /material-requests/{material_request_id} {
+      allow read: if isAdmin();
+      allow create: if isAdmin() || get(/databases/$(database)/documents/material-requests/$(material_request_id)).uid == request.auth.uid;
+      allow update: if isAdmin();
+      allow delete: if isAdmin();
     }
   }
 }
