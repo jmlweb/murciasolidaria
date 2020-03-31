@@ -1,5 +1,4 @@
-import React, { useEffect, Suspense } from 'react';
-import { Flex, Spinner } from '@chakra-ui/core';
+import React, { useEffect } from 'react';
 
 import FirebaseProvider from './FirebaseProvider';
 import ResponsiveProvider from './ResponsiveProvider';
@@ -15,21 +14,7 @@ const App = () => {
     <StylesProvider>
       <ResponsiveProvider>
         <FirebaseProvider>
-          <Suspense
-            fallback={
-              <Flex justifyContent="center" alignItems="center" height="100vh">
-                <Spinner
-                  thickness="4px"
-                  speed="0.65s"
-                  emptyColor="cyan.200"
-                  color="cyan.500"
-                  size="xl"
-                />
-              </Flex>
-            }
-          >
-            <Scenes />
-          </Suspense>
+          <Scenes />
         </FirebaseProvider>
       </ResponsiveProvider>
     </StylesProvider>
