@@ -4,7 +4,7 @@ import { Link as ReactRouterLink } from 'react-router-dom';
 import { FiTruck } from 'react-icons/fi';
 
 const Buttons = () => (
-  <Flex justifyContent="center" mb={8}>
+  <Flex justifyContent="center" my={8}>
     <Button
       size="lg"
       as={ReactRouterLink}
