@@ -3,11 +3,17 @@ import { useAuth, useFirestore } from 'reactfire';
 import firebase from 'firebase/app';
 import 'firebase/auth';
 import { useToggler } from 'reactponsive';
+
 import useAlertNotification from './useAlertNotification';
+import useErrorNotifier from './useErrorNotifier';
 
 const provider = new firebase.auth.GoogleAuthProvider();
 
 const useGoogleSignin = (cb) => {
+  const errorNotify = useErrorNotifier({
+    severity: 'warning',
+    component: 'google-signin',
+  });
   const auth = useAuth();
   auth.useDeviceLanguage();
   const isDesktop = useToggler('lg');
@@ -49,8 +55,9 @@ const useGoogleSignin = (cb) => {
       notify({
         description: e.message,
       });
+      errorNotify(e);
     }
-  }, [cb, getSignInResult, notify, updateUser]);
+  }, [cb, getSignInResult, notify, updateUser, errorNotify]);
 
   return onClick;
 };

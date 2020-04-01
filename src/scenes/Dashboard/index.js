@@ -3,10 +3,14 @@ import { useFirestore, useFirestoreCollection } from 'reactfire';
 import { Tabs, TabList, TabPanels, Tab, TabPanel } from '@chakra-ui/core';
 
 import { Container, MainLayout } from '../../components';
-import { useAlertNotification } from '../../hooks';
+import { useAlertNotification, useErrorNotifier } from '../../hooks';
 import DataTable from './DataTable';
 
 const Dashboard = () => {
+  const errorNotifier = useErrorNotifier({
+    severity: 'error',
+    component: 'dashboard',
+  });
   const firestore = useFirestore();
   const { docs } = useFirestoreCollection(
     firestore
@@ -36,6 +40,7 @@ const Dashboard = () => {
       notify({
         description: e.message,
       });
+      errorNotifier(e);
     }
   };
   return (

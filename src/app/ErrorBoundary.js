@@ -1,11 +1,5 @@
 import { React, Component } from 'react';
 import { Notifier } from '@airbrake/browser';
-import {
-  Alert,
-  AlertIcon,
-  AlertTitle,
-  AlertDescription,
-} from '@chakra-ui/core';
 import PT from 'prop-types';
 
 class ErrorBoundary extends Component {
@@ -13,8 +7,8 @@ class ErrorBoundary extends Component {
     super(props);
     this.state = { hasError: false };
     this.airbrake = new Notifier({
-      projectId: 265985,
-      projectKey: '041f76d5194890f78a65022f0bc59677',
+      projectId: process.env.REACT_APP_AIRBRAKE_PROJECT_ID,
+      projectKey: process.env.REACT_APP_AIRBRAKE_PROJECT_KEY,
     });
   }
 
@@ -34,13 +28,10 @@ class ErrorBoundary extends Component {
     if (hasError) {
       // You can render any custom fallback UI
       return (
-        <Alert status="error">
-          <AlertIcon />
-          <AlertTitle mr={2}>¡Ha ocurrido un problema!</AlertTitle>
-          <AlertDescription>
-            Por favor, recarga la página o vuelve pasado un tiempo.
-          </AlertDescription>
-        </Alert>
+        <div>
+          <h1>¡Ha ocurrido un problema!</h1>
+          <p>Por favor, recarga la página o vuelve pasado un tiempo.</p>
+        </div>
       );
     }
     return children;

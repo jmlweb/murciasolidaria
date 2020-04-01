@@ -12,7 +12,7 @@ service cloud.firestore {
 
   	match /users/{user_id} {
       allow read: if request.auth.uid == user_id || isAdmin();
-      allow create: if isLogged() && request.resource.data.isAdmin == false;
+      allow create: if true;
       allow update: if (request.auth.uid == user_id && request.resource.data.isAdmin == false) || isAdmin();
     }
     match /material-requests/{material_request_id} {

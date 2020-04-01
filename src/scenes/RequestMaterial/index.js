@@ -5,7 +5,11 @@ import { Heading, Alert, AlertIcon } from '@chakra-ui/core';
 import firebase from 'firebase/app';
 
 import { Container, MainLayout, NeedSignInAlert } from '../../components';
-import { useAlertNotification, useLogPage } from '../../hooks';
+import {
+  useAlertNotification,
+  useLogPage,
+  useErrorNotifier,
+} from '../../hooks';
 
 import RequestForm from './RequestForm';
 
@@ -20,6 +24,10 @@ const RequestMaterialContent = () => {
   const uid = safeProp('uid', user);
   const firestore = useFirestore();
   const notify = useAlertNotification();
+  const errorNotifier = useErrorNotifier({
+    severity: 'error',
+    component: 'request-material',
+  });
   useLogPage();
   const onSubmit = async (values, { setSubmitting, resetForm }) => {
     try {
@@ -42,6 +50,7 @@ const RequestMaterialContent = () => {
         title: 'Ha habido un problema al crear los datos',
         description: e.message,
       });
+      errorNotifier(e);
     }
     setSubmitting(false);
   };
