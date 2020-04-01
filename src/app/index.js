@@ -5,6 +5,7 @@ import ResponsiveProvider from './ResponsiveProvider';
 import StylesProvider from './StylesProvider';
 import Scenes from '../scenes';
 import setYupLocale from './setYupLocale';
+import ErrorBoundary from './ErrorBoundary';
 
 const App = () => {
   useEffect(() => {
@@ -12,11 +13,13 @@ const App = () => {
   }, []);
   return (
     <StylesProvider>
-      <ResponsiveProvider>
-        <FirebaseProvider>
-          <Scenes />
-        </FirebaseProvider>
-      </ResponsiveProvider>
+      <ErrorBoundary>
+        <ResponsiveProvider>
+          <FirebaseProvider>
+            <Scenes />
+          </FirebaseProvider>
+        </ResponsiveProvider>
+      </ErrorBoundary>
     </StylesProvider>
   );
 };

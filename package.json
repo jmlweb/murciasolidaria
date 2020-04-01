@@ -37,6 +37,7 @@
     ]
   },
   "dependencies": {
+    "@airbrake/browser": "^1.0.6",
     "@chakra-ui/core": "^0.7.0",
     "@emotion/core": "^10.0.28",
     "@emotion/styled": "^10.0.27",
