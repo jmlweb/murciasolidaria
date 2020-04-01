@@ -2,12 +2,11 @@ import React from 'react';
 import { Mapper } from 'reactponsive';
 
 import DesktopMenu from './DesktopMenu';
-
-const MobileMenu = () => <div>MobileMenu</div>;
+import GoogleSignIn from '../GoogleSignin';
 
 const AnonymMenu = () => {
   const componentMap = {
-    default: <MobileMenu />,
+    default: <GoogleSignIn />,
     lg: <DesktopMenu isLogged={false} />,
   };
   return <Mapper mqs={componentMap} />;

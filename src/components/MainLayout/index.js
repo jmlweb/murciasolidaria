@@ -9,7 +9,7 @@ const HeaderContentLayout = ({ children }) => (
   <Grid
     gridTemplateRows="auto 1fr auto"
     gridTemplateColumns="1fr"
-    minHeight="100vh"
+    minHeight="100%"
   >
     <MainHeader />
     <main>{children}</main>

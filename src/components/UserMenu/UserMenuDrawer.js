@@ -63,12 +63,9 @@ const UserMenu = ({ btnRef, onClose, isOpen, onSignOut, name, isAdmin }) => (
           <LinkWithIcon to="/request-material" icon={FiAlertOctagon}>
             Solicitar material
           </LinkWithIcon>
-          <Flex alignItems="center">
-            <LinkWithIcon to="/" icon={FiHeart} isDisabled mr={2}>
-              Donar material
-            </LinkWithIcon>
-            <Badge variantColor="yellow">Pronto</Badge>
-          </Flex>
+          <LinkWithIcon to="/donations" icon={FiHeart} mr={2}>
+            Donaciones
+          </LinkWithIcon>
         </Stack>
       </DrawerBody>
       <DrawerFooter as={Flex} justifyContent="center">

@@ -3,13 +3,12 @@ import { Mapper } from 'reactponsive';
 
 import DesktopMenu from './DesktopMenu';
 import { useGoogleSignin } from '../../hooks';
-
-const MobileMenu = () => <div>MobileMenu</div>;
+import UserMenu from '../UserMenu';
 
 const LoggedMenu = () => {
   const onLogin = useGoogleSignin();
   const componentMap = {
-    default: <MobileMenu />,
+    default: <UserMenu />,
     lg: <DesktopMenu isLogged onLogin={onLogin} />,
   };
   return <Mapper mqs={componentMap} />;
