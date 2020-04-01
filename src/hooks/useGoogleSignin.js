@@ -1,6 +1,7 @@
 import { useCallback } from 'react';
 import { useAuth, useFirestore } from 'reactfire';
 import firebase from 'firebase/app';
+import 'firebase/auth';
 import { useToggler } from 'reactponsive';
 import useAlertNotification from './useAlertNotification';
 
