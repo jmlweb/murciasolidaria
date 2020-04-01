@@ -1,5 +1,5 @@
 import { useCallback } from 'react';
-import { useAuth, useFirestore } from 'reactfire';
+import { useAuth } from 'reactfire';
 import firebase from 'firebase/app';
 import 'firebase/auth';
 import { useToggler } from 'reactponsive';
@@ -20,20 +20,6 @@ const useGoogleSignin = (cb) => {
   const notify = useAlertNotification({
     title: 'Ha habido un problema al intentar loguearse.',
   });
-  const firestore = useFirestore();
-
-  const updateUser = useCallback(async () => {
-    const { currentUser } = auth;
-    const userRef = firestore.collection('users/').doc(currentUser.uid);
-    const userDoc = await userRef.get();
-    if (!userDoc.exists) {
-      await userRef.set({
-        name: currentUser.displayName,
-        email: currentUser.email,
-        isAdmin: false,
-      });
-    }
-  }, [firestore, auth]);
 
   const getSignInResult = useCallback(
     () =>
@@ -46,7 +32,6 @@ const useGoogleSignin = (cb) => {
   const onClick = useCallback(async () => {
     try {
       await getSignInResult();
-      await updateUser();
 
       if (cb) {
         cb();
@@ -57,7 +42,7 @@ const useGoogleSignin = (cb) => {
       });
       errorNotify(e);
     }
-  }, [cb, getSignInResult, notify, updateUser, errorNotify]);
+  }, [cb, getSignInResult, notify, errorNotify]);
 
   return onClick;
 };
