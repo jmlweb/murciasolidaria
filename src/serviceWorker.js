@@ -35,14 +35,8 @@ export function register(config) {
     // to force update an exiting service worker.
     // Since we're using `injectManifest` to build SW,
     // manually overriding the skipWaiting();
-    window.addEventListener('install', (event) => {
-      self.skipWaiting();
-      window.location.reload();
-    });
-
     window.addEventListener('load', () => {
-      // const swUrl = `${process.env.PUBLIC_URL}/service-worker.js`;
-      const swUrl = `${process.env.PUBLIC_URL}/sw.js`;
+      const swUrl = `${process.env.PUBLIC_URL}/service-worker.js`;
 
       if (isLocalhost) {
         // This is running on localhost. Let's check if a service worker still exists or not.
