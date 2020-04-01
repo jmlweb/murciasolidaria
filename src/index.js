@@ -14,6 +14,7 @@ ReactDOM.render(
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
 if (process.env.NODE_ENV === 'production') {
+  serviceWorker.unregister();
   serviceWorker.register();
 } else {
   serviceWorker.unregister();
