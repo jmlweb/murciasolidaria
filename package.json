@@ -4,7 +4,9 @@
   "private": true,
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build-sw": "node ./src/sw-build.js",
+    "clean-cra-sw": "rm -f build/precache-manifest.*.js && rm -f build/service-worker.js",
+    "build": "react-scripts build && npm run build-sw && npm run clean-cra-sw",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "eslint ."
@@ -70,6 +72,7 @@
     "lint-staged": "^10.0.9",
     "prettier": "^2.0.2",
     "react-test-renderer": "^16.13.1",
-    "typescript": "^3.8.3"
+    "typescript": "^3.8.3",
+    "workbox-build": "^5.1.2"
   }
 }

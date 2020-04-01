@@ -1,1 +1,3 @@
 src/serviceWorker.js
+src/sw-build.js
+src/sw-custom.js
