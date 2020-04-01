@@ -2,12 +2,12 @@ import React, { memo } from 'react';
 import { Image } from '@chakra-ui/core';
 import styled from '@emotion/styled';
 
-// import { useMapper } from 'reactponsive';
+import { useMapper } from 'reactponsive';
 
-// const desktopImg =
-//   'https://res.cloudinary.com/murciasolidaria/image/upload/f_auto,fl_progressive/v1585682634/nido-laser_wtpmaq.jpg';
-// const mobileImg =
-//   'https://res.cloudinary.com/murciasolidaria/image/upload/c_scale,f_auto,fl_progressive,w_509/v1585682634/nido-laser-sm_m0xlek.jpg';
+const desktopImg =
+  'https://res.cloudinary.com/murciasolidaria/image/upload/f_auto,fl_progressive/v1585682634/nido-laser_wtpmaq.jpg';
+const mobileImg =
+  'https://res.cloudinary.com/murciasolidaria/image/upload/c_scale,f_auto,fl_progressive,w_509/v1585682634/nido-laser-sm_m0xlek.jpg';
 
 const SImage = styled(Image)`
   overflow-x: scroll;
@@ -15,12 +15,10 @@ const SImage = styled(Image)`
 `;
 
 const IntroImage = () => {
-  // const introImg = useMapper({
-  //   default: mobileImg,
-  //   lg: desktopImg,
-  // });
-  const introImg =
-    'https://res.cloudinary.com/murciasolidaria/image/upload/e_auto_brightness,f_auto,fl_progressive/v1585697513/WhatsApp_Image_2020-03-30_at_21.59.22_m4yugf.jpg';
+  const introImg = useMapper({
+    default: mobileImg,
+    lg: desktopImg,
+  });
   return (
     <SImage
       src={introImg}

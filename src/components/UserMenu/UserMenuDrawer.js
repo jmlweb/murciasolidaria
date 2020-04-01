@@ -18,8 +18,9 @@ import {
   FiActivity,
   FiUnlock,
   FiHeart,
-  FiAlertOctagon,
+  FiTruck,
   FiSettings,
+  FiHelpCircle,
 } from 'react-icons/fi';
 import { Link as RouterLink } from 'react-router-dom';
 import PT from 'prop-types';
@@ -60,11 +61,14 @@ const UserMenu = ({ btnRef, onClose, isOpen, onSignOut, name, isAdmin }) => (
             </LinkWithIcon>
             <Badge variantColor="yellow">Pronto</Badge>
           </Flex>
-          <LinkWithIcon to="/request-material" icon={FiAlertOctagon}>
+          <LinkWithIcon to="/solicitar-material" icon={FiTruck}>
             Solicitar material
           </LinkWithIcon>
-          <LinkWithIcon to="/donations" icon={FiHeart} mr={2}>
+          <LinkWithIcon to="/donaciones" icon={FiHeart} mr={2}>
             Donaciones
+          </LinkWithIcon>
+          <LinkWithIcon to="/que-es" icon={FiHelpCircle} mr={2}>
+            ¿Qué es?
           </LinkWithIcon>
         </Stack>
       </DrawerBody>

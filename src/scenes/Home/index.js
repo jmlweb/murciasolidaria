@@ -12,7 +12,7 @@ const Home = () => {
   const history = useHistory();
   useLogPage();
   const goToRequestMaterial = useCallback(
-    () => history.push('/request-material'),
+    () => history.push('/solicitar-material'),
     [history],
   );
   const onClick = useGoogleSignin(goToRequestMaterial);

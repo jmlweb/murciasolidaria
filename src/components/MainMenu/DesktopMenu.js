@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, Link, Stack } from '@chakra-ui/core';
-import { FiHeart, FiAlertOctagon } from 'react-icons/fi';
+import { FiHeart, FiTruck, FiHelpCircle } from 'react-icons/fi';
 import { Link as RouterLink } from 'react-router-dom';
 import PT from 'prop-types';
 
@@ -21,11 +21,14 @@ LinkWithIcon.propTypes = {
 
 const DesktopMenu = ({ isLogged }) => (
   <Stack spacing={12} isInline alignItems="center">
-    <LinkWithIcon to="/donations" icon={FiHeart}>
+    <LinkWithIcon to="/donaciones" icon={FiHeart}>
       Donaciones
     </LinkWithIcon>
-    <LinkWithIcon to="/request-material" icon={FiAlertOctagon}>
+    <LinkWithIcon to="/solicitar-material" icon={FiTruck}>
       Solicitar material
+    </LinkWithIcon>
+    <LinkWithIcon to="/que-es" icon={FiHelpCircle}>
+      ¿Qué es?
     </LinkWithIcon>
     {isLogged && <UserDropdown />}
     {!isLogged && <GoogleSignIn />}

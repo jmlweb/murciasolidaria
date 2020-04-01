@@ -1,7 +1,7 @@
 import React, { Suspense, lazy, memo } from 'react';
 import { Box, Button, Flex, Heading, Text, useTheme } from '@chakra-ui/core';
 import { Link as ReactRouterLink } from 'react-router-dom';
-import { FiAlertOctagon } from 'react-icons/fi';
+import { FiTruck } from 'react-icons/fi';
 import PT from 'prop-types';
 
 import { Container } from '../../components';
@@ -51,10 +51,10 @@ const Intro = () => {
               <Button
                 size="lg"
                 as={ReactRouterLink}
-                to="/request-material"
+                to="/solicitar-material"
                 variantColor="teal"
               >
-                <Box as={FiAlertOctagon} display="inline-block" mr={1} />
+                <Box as={FiTruck} display="inline-block" mr={1} />
                 Solicitar pantallas
               </Button>
             </Flex>

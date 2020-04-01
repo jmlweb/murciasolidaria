@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { Flex, Spinner } from '@chakra-ui/core';
 import { preloadAuth, preloadFirestore } from 'reactfire';
 
+const About = lazy(() => import('./About'));
 const Dashboard = lazy(() => import('./Dashboard'));
 const Donations = lazy(() => import('./Donations'));
 const Home = lazy(() => import('./Home'));
@@ -32,9 +33,10 @@ const Scenes = () => {
     >
       <Router>
         <Switch>
+          <Route path="/que-es" component={About} />
           <Route path="/dashboard" component={Dashboard} />
-          <Route path="/donations" component={Donations} />
-          <Route path="/request-material" component={RequestMaterial} />
+          <Route path="/donaciones" component={Donations} />
+          <Route path="/solicitar-material" component={RequestMaterial} />
           <Route component={Home} />
         </Switch>
       </Router>
