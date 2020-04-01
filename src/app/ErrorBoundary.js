@@ -1,4 +1,4 @@
-import { React, Component } from 'react';
+import React, { Component } from 'react';
 import { Notifier } from '@airbrake/browser';
 import PT from 'prop-types';
 

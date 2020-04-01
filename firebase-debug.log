@@ -1,0 +1,59 @@
+[debug] [2020-04-01T19:02:16.178Z] ----------------------------------------------------------------------
+[debug] [2020-04-01T19:02:16.179Z] Command:       /Users/josemanuellucasmunoz/.nvm/versions/node/v13.9.0/bin/node /Users/josemanuellucasmunoz/.nvm/versions/node/v13.9.0/bin/firebase deploy
+[debug] [2020-04-01T19:02:16.179Z] CLI Version:   7.16.1
+[debug] [2020-04-01T19:02:16.179Z] Platform:      darwin
+[debug] [2020-04-01T19:02:16.179Z] Node Version:  v13.9.0
+[debug] [2020-04-01T19:02:16.180Z] Time:          Wed Apr 01 2020 21:02:16 GMT+0200 (hora de verano de Europa central)
+[debug] [2020-04-01T19:02:16.180Z] ----------------------------------------------------------------------
+[debug] [2020-04-01T19:02:16.180Z] 
+[debug] [2020-04-01T19:02:16.188Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-04-01T19:02:16.189Z] > authorizing via signed-in user
+[debug] [2020-04-01T19:02:16.189Z] [iam] checking project murciasolidaria-619d0 for permissions ["datastore.indexes.create","datastore.indexes.delete","datastore.indexes.list","datastore.indexes.update","firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2020-04-01T19:02:16.191Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/murciasolidaria-619d0:testIamPermissions  
+
+[debug] [2020-04-01T19:02:18.151Z] <<< HTTP RESPONSE 200
+[debug] [2020-04-01T19:02:18.153Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/murciasolidaria-619d0  
+ 
+[debug] [2020-04-01T19:02:18.880Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Deploying to 'murciasolidaria-619d0'...
+[info] 
+[info] i  deploying firestore, hosting
+[info] i  firestore: reading indexes from firestore.indexes.json...
+[info] i  cloud.firestore: checking firestore.rules for compilation errors...
+[debug] [2020-04-01T19:02:18.885Z] >>> HTTP REQUEST POST https://firebaserules.googleapis.com/v1/projects/murciasolidaria-619d0:test  
+
+[debug] [2020-04-01T19:02:19.275Z] <<< HTTP RESPONSE 200
+[info] ✔  cloud.firestore: rules file firestore.rules compiled successfully
+[debug] [2020-04-01T19:02:19.277Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/murciasolidaria-619d0/versions  
+
+[debug] [2020-04-01T19:02:20.805Z] <<< HTTP RESPONSE 200
+[debug] [2020-04-01T19:02:20.807Z] >>> HTTP REQUEST GET https://firebaserules.googleapis.com/v1/projects/murciasolidaria-619d0/releases?pageSize=10&pageToken=  
+ 
+[debug] [2020-04-01T19:02:20.808Z] >>> HTTP REQUEST GET https://firestore.googleapis.com/v1beta2/projects/murciasolidaria-619d0/databases/(default)/collectionGroups/-/indexes  
+ 
+[debug] [2020-04-01T19:02:21.120Z] <<< HTTP RESPONSE 200
+[debug] [2020-04-01T19:02:21.120Z] >>> HTTP REQUEST GET https://firestore.googleapis.com/v1beta2/projects/murciasolidaria-619d0/databases/(default)/collectionGroups/-/fields?filter=indexConfig.usesAncestorConfig=false  
+ 
+[debug] [2020-04-01T19:02:21.382Z] <<< HTTP RESPONSE 200
+[info] ✔  firestore: deployed indexes in firestore.indexes.json successfully
+[debug] [2020-04-01T19:02:21.734Z] <<< HTTP RESPONSE 200
+[debug] [2020-04-01T19:02:21.735Z] >>> HTTP REQUEST GET https://firebaserules.googleapis.com/v1/projects/murciasolidaria-619d0/rulesets/2eec10de-fdd0-4a16-a6d9-c699139afccb  
+ 
+[debug] [2020-04-01T19:02:22.554Z] <<< HTTP RESPONSE 200
+[info] i  firestore: latest version of firestore.rules already up to date, skipping upload...
+[info] i  hosting[murciasolidaria-619d0]: beginning deploy...
+[info] i  hosting[murciasolidaria-619d0]: found 92 files in build
+[debug] [2020-04-01T19:02:23.016Z] [hosting] hash cache [YnVpbGQ] stored for 92 files
+[debug] [2020-04-01T19:02:23.016Z] [hosting][hash queue][FINAL]
+[debug] [2020-04-01T19:02:23.017Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/murciasolidaria-619d0/versions/066700ee03fa4f8a:populateFiles  
+ <request body omitted>
+[debug] [2020-04-01T19:02:24.330Z] <<< HTTP RESPONSE 200
+[debug] [2020-04-01T19:02:24.341Z] [hosting][populate queue][FINAL]
+[debug] [2020-04-01T19:02:24.341Z] [hosting] uploads queued: 28
+[debug] [2020-04-01T19:02:27.095Z] [hosting][upload queue][FINAL]
+[info] ✔  hosting[murciasolidaria-619d0]: file upload complete
+[debug] [2020-04-01T19:02:27.096Z] [hosting] deploy completed after 4541ms
+[debug] [2020-04-01T19:02:27.198Z] [rules] releasing cloud.firestore with ruleset projects/murciasolidaria-619d0/rulesets/2eec10de-fdd0-4a16-a6d9-c699139afccb
+[debug] [2020-04-01T19:02:27.198Z] >>> HTTP REQUEST PATCH https://firebaserules.googleapis.com/v1/projects/murciasolidaria-619d0/releases/cloud.firestore  
+
