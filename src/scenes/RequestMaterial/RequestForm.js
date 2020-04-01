@@ -15,7 +15,7 @@ import {
 } from '../../components';
 
 const QTY_OPTIONS = {
-  min: 5,
+  min: 1,
   max: 500,
   default: 50,
 };
