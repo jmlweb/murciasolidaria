@@ -1,16 +1,18 @@
 import React from 'react';
-import { AuthCheck, useUser, useFirestore } from 'reactfire';
+import { AuthCheck, useUser, useFirestore, useAnalytics } from 'reactfire';
 import { propOr } from 'ramda';
 import { Heading, Alert, AlertIcon } from '@chakra-ui/core';
 import firebase from 'firebase/app';
 
 import { Container, MainLayout, NeedSignInAlert } from '../../components';
-import { useAlertNotification } from '../../hooks';
+import { useAlertNotification, useLogPage } from '../../hooks';
+
 import RequestForm from './RequestForm';
 
 const safeProp = propOr('');
 
 const RequestMaterialContent = () => {
+  const analytics = useAnalytics();
   const user = useUser();
   const name = safeProp('displayName', user);
   const email = safeProp('email', user);
@@ -18,6 +20,7 @@ const RequestMaterialContent = () => {
   const uid = safeProp('uid', user);
   const firestore = useFirestore();
   const notify = useAlertNotification();
+  useLogPage();
   const onSubmit = async (values, { setSubmitting, resetForm }) => {
     try {
       await firestore.collection('material-requests').add({
@@ -32,6 +35,7 @@ const RequestMaterialContent = () => {
         description: 'Recibirás una respuesta lo antes posible',
         status: 'success',
       });
+      analytics.logEvent('goal_completion', { name: 'request_material' });
       resetForm();
     } catch (e) {
       notify({

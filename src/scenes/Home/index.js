@@ -2,7 +2,7 @@ import React, { useCallback } from 'react';
 import { useHistory } from 'react-router-dom';
 
 import { MainLayout } from '../../components';
-import { useGoogleSignin } from '../../hooks';
+import { useGoogleSignin, useLogPage } from '../../hooks';
 import Intro from './Intro';
 import Presentation from './Presentation';
 import Buttons from './Buttons';
@@ -10,6 +10,7 @@ import Target from './Target';
 
 const Home = () => {
   const history = useHistory();
+  useLogPage();
   const goToRequestMaterial = useCallback(
     () => history.push('/request-material'),
     [history],
