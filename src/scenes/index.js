@@ -10,7 +10,10 @@ const RequestMaterial = lazy(() => import('./RequestMaterial'));
 const Scenes = () => {
   preloadAuth();
   preloadFirestore({
-    setup: (firestore) => firestore().enablePersistence(),
+    setup: (firestore) =>
+      firestore().enablePersistence({
+        synchronizeTabs: true,
+      }),
   });
 
   return (
