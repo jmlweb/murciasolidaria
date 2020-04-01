@@ -1,10 +1,10 @@
 import React from 'react';
-import { AuthCheck, useUser, useFirestore, useAnalytics } from 'reactfire';
+import { useUser, useFirestore, useAnalytics } from 'reactfire';
 import { propOr } from 'ramda';
 import { Heading, Alert, AlertIcon } from '@chakra-ui/core';
 import firebase from 'firebase/app';
 
-import { Container, MainLayout, NeedSignInAlert } from '../../components';
+import { Container, MainLayout } from '../../components';
 import {
   useAlertNotification,
   useLogPage,
@@ -82,13 +82,7 @@ const RequestMaterial = () => {
           Nuestro equipo se pondrá en contacto contigo a la mayor brevedad
           posible para concretar los detalles
         </Alert>
-        <AuthCheck
-          fallback={
-            <NeedSignInAlert title="Identifícate para solicitar material" />
-          }
-        >
-          <RequestMaterialContent />
-        </AuthCheck>
+        <RequestMaterialContent />
       </Container>
     </MainLayout>
   );

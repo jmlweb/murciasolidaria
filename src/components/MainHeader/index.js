@@ -1,13 +1,10 @@
-import React, { lazy } from 'react';
+import React from 'react';
 import { Flex } from '@chakra-ui/core';
-import { AuthCheck } from 'reactfire';
 import { Link } from 'react-router-dom';
 
 import Container from '../Container';
 import Logo from '../Logo';
-
-const GoogleSignin = lazy(() => import('../GoogleSignin'));
-const UserMenu = lazy(() => import('../UserMenu'));
+import MainMenu from '../MainMenu';
 
 const MainHeader = () => (
   <Container>
@@ -23,9 +20,7 @@ const MainHeader = () => (
         <Logo />
       </Link>
       <div>
-        <AuthCheck fallback={<GoogleSignin />}>
-          <UserMenu />
-        </AuthCheck>
+        <MainMenu />
       </div>
     </Flex>
   </Container>

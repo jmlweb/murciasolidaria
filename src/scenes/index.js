@@ -4,6 +4,7 @@ import { Flex, Spinner } from '@chakra-ui/core';
 import { preloadAuth, preloadFirestore } from 'reactfire';
 
 const Dashboard = lazy(() => import('./Dashboard'));
+const Donations = lazy(() => import('./Donations'));
 const Home = lazy(() => import('./Home'));
 const RequestMaterial = lazy(() => import('./RequestMaterial'));
 
@@ -32,6 +33,7 @@ const Scenes = () => {
       <Router>
         <Switch>
           <Route path="/dashboard" component={Dashboard} />
+          <Route path="/donations" component={Donations} />
           <Route path="/request-material" component={RequestMaterial} />
           <Route component={Home} />
         </Switch>
