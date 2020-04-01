@@ -10,15 +10,6 @@ if (typeof importScripts === 'function') {
     // Disable logging
     workbox.setConfig({ debug: false });
 
-    // `generateSW` and `generateSWString` provide the option
-    // to force update an exiting service worker.
-    // Since we're using `injectManifest` to build SW,
-    // manually overriding the skipWaiting();
-    self.addEventListener('install', (event) => {
-      self.skipWaiting();
-      window.location.reload();
-    });
-
     // Manual injection point for manifest files.
     // All assets under build/ and 5MB sizes are precached.
     workbox.precaching.precacheAndRoute(self.__WB_MANIFEST);

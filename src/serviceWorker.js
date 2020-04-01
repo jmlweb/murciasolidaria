@@ -31,6 +31,15 @@ export function register(config) {
       return;
     }
 
+    // `generateSW` and `generateSWString` provide the option
+    // to force update an exiting service worker.
+    // Since we're using `injectManifest` to build SW,
+    // manually overriding the skipWaiting();
+    window.addEventListener('install', (event) => {
+      self.skipWaiting();
+      window.location.reload();
+    });
+
     window.addEventListener('load', () => {
       // const swUrl = `${process.env.PUBLIC_URL}/service-worker.js`;
       const swUrl = `${process.env.PUBLIC_URL}/sw.js`;
