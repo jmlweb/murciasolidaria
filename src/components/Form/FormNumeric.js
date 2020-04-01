@@ -8,33 +8,51 @@ import {
 } from '@chakra-ui/core';
 import PT from 'prop-types';
 
-const FormNumeric = ({ field, form, step, min, max }) => (
-  <NumberInput
-    value={field.value}
-    onChange={(value) => {
-      if (value !== form.values[field.name]) {
-        form.setFieldValue(field.name, value);
-      }
-    }}
-    clampValueOnBlur={false}
-    step={step}
-    min={min}
-    max={max}
-  >
-    <NumberInputField
-      id={field.name}
-      aria-describedby={`${field.name}-helper-text`}
-      {...field}
-    />
-    <NumberInputStepper>
-      <NumberIncrementStepper />
-      <NumberDecrementStepper />
-    </NumberInputStepper>
-  </NumberInput>
-);
+const getStep = (value) => {
+  if (value < 10) {
+    return 1;
+  }
+  if (value < 50) {
+    return 5;
+  }
+  if (value < 100) {
+    return 10;
+  }
+  if (value < 200) {
+    return 50;
+  }
+  return 100;
+};
+
+const FormNumeric = ({ field, form, min, max }) => {
+  const step = getStep(field.value);
+  return (
+    <NumberInput
+      value={field.value}
+      onChange={(value) => {
+        if (value !== form.values[field.name]) {
+          form.setFieldValue(field.name, value);
+        }
+      }}
+      clampValueOnBlur={false}
+      step={step}
+      min={min}
+      max={max}
+    >
+      <NumberInputField
+        id={field.name}
+        aria-describedby={`${field.name}-helper-text`}
+        {...field}
+      />
+      <NumberInputStepper>
+        <NumberIncrementStepper />
+        <NumberDecrementStepper />
+      </NumberInputStepper>
+    </NumberInput>
+  );
+};
 
 FormNumeric.defaultProps = {
-  step: undefined,
   min: undefined,
   max: undefined,
 };
@@ -48,7 +66,6 @@ FormNumeric.propTypes = {
     values: PT.objectOf(PT.oneOfType([PT.string, PT.number])).isRequired,
     setFieldValue: PT.func.isRequired,
   }).isRequired,
-  step: PT.number,
   min: PT.number,
   max: PT.number,
 };

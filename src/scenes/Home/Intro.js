@@ -41,16 +41,20 @@ const Intro = ({ onClick }) => {
             <Heading as="h2" mb={2}>
               El COVID-19 lo paramos entre todos
             </Heading>
-            <Text fontSize="2xl" mb={6}>
+            <Text fontSize="2xl" mb={2}>
               Queremos que nuestros héroes sin capa puedan luchar contra el
               Coronavirus con las medidas de protección que se merecen.{' '}
+            </Text>
+            <Text fontSize="2xl" mb={6}>
+              Te ofrecemos PANTALLAS PROTECTORAS para desempeñar tu trabajo con
+              seguridad.{' '}
             </Text>
             <Flex justifyContent="center">
               <AuthCheck
                 fallback={
                   <Button size="lg" onClick={onClick} variantColor="red">
                     <Box as={AiOutlineGoogle} display="inline-block" mr={1} />
-                    Accede para solicitar material
+                    Accede para solicitar pantallas
                   </Button>
                 }
               >
@@ -61,7 +65,7 @@ const Intro = ({ onClick }) => {
                   variantColor="teal"
                 >
                   <Box as={FiAlertOctagon} display="inline-block" mr={1} />
-                  Solicitar material
+                  Solicitar pantallas
                 </Button>
               </AuthCheck>
             </Flex>

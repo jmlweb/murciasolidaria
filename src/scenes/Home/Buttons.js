@@ -12,7 +12,7 @@ const Buttons = ({ onClick }) => (
       fallback={
         <Button size="lg" onClick={onClick} variantColor="red">
           <Box as={AiOutlineGoogle} display="inline-block" mr={1} />
-          Accede para solicitar material
+          Accede para solicitar pantallas
         </Button>
       }
     >
@@ -23,7 +23,7 @@ const Buttons = ({ onClick }) => (
         variantColor="teal"
       >
         <Box as={FiAlertOctagon} display="inline-block" mr={1} />
-        Solicitar material
+        Solicitar pantallas
       </Button>
     </AuthCheck>
   </Flex>

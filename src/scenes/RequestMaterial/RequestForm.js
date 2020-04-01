@@ -15,9 +15,9 @@ import {
 } from '../../components';
 
 const QTY_OPTIONS = {
-  min: 50,
+  min: 5,
   max: 500,
-  step: 50,
+  default: 50,
 };
 
 const validationSchema = Yup.object().shape({
@@ -59,7 +59,7 @@ const RequestForm = ({ name, email, phone, onSubmit }) => {
     name,
     email,
     phone,
-    qty: QTY_OPTIONS.min,
+    qty: QTY_OPTIONS.default,
     priority: 'mid',
     org: '',
     area: '',
