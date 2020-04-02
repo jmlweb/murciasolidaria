@@ -19,7 +19,7 @@ import { FiAtSign } from 'react-icons/fi';
 import { CommonLink, Container, MainLayout } from '../../components';
 
 const Donations = () => {
-  const isDesktop = useToggler('lg');
+  const isDesktop = useToggler('xxl');
   return (
     <MainLayout>
       <Stack spacing={8}>
@@ -142,6 +142,25 @@ const Donations = () => {
                 </Text>
               </Stack>
               <Box width="100%" maxW="520px" margin="0 auto">
+                <Box
+                  backgroundColor="teal.100"
+                  border="1px solid"
+                  borderColor="teal.200"
+                  borderRadius="md"
+                  p={[2, 2, 4]}
+                  mb={4}
+                >
+                  <Text color="teal.600">
+                    Puedes realizar tu aportación en la cuenta:
+                  </Text>
+                  <Text
+                    fontSize={['md', 'lg', 'xl']}
+                    fontWeight="bold"
+                    color="teal.800"
+                  >
+                    ES60 2100 1130 3102 0003 7540
+                  </Text>
+                </Box>
                 <AspectRatioBox maxW="520px" ratio={0.75}>
                   <Box
                     as="embed"
