@@ -21,7 +21,7 @@ const Item = ({ children }) => (
     borderColor="gray.200"
     borderRadius="md"
   >
-    <ListIcon icon="check-circle" color="teal.500" /> {children}
+    <ListIcon icon="info" color="teal.500" /> {children}
   </ListItem>
 );
 
@@ -30,8 +30,8 @@ Item.propTypes = {
 };
 
 const Target = () => (
-  <Container maxWidth="4xl" mt={8}>
-    <Stack my={[8, 10]} spacing={2}>
+  <Container maxWidth="4xl" my={8}>
+    <Stack mt={[8, 10]} spacing={2}>
       <Heading as="h3" size="lg" fontSize="24px">
         ¿A quién va dirigida esta iniciativa?
       </Heading>
@@ -41,7 +41,7 @@ const Target = () => (
           que desempeñen un trabajo imprescindible en el estado de alarma
           actual:
         </Text>
-        <SimpleGrid as={List} columns={2} spacing={10} mt={4}>
+        <SimpleGrid as={List} columns={[1, 1, 2]} spacing={10} mt={4} pb={6}>
           <Item>Personal sanitario</Item>
           <Item>Farmacéuticos</Item>
           <Item>Centros de salud</Item>

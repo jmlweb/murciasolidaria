@@ -1,7 +1,12 @@
 import React from 'react';
 import { and, prop } from 'ramda';
 import { FastField } from 'formik';
-import { FormControl, FormLabel, FormErrorMessage } from '@chakra-ui/core';
+import {
+  FormControl,
+  FormLabel,
+  FormErrorMessage,
+  FormHelperText,
+} from '@chakra-ui/core';
 import PT from 'prop-types';
 import FormInput from './FormInput';
 
@@ -13,6 +18,7 @@ const FormGroup = ({
   isRequired,
   children,
   component,
+  helperText,
   ...rest
 }) => {
   const errorMsg = prop(name, errors);
@@ -23,8 +29,13 @@ const FormGroup = ({
       <FastField name={name} component={children ? undefined : component}>
         {children}
       </FastField>
+      {helperText && (
+        <FormHelperText id={`${name}-helper-text`}>{helperText}</FormHelperText>
+      )}
       {isInvalid && (
-        <FormErrorMessage id="name-helper-text">{errorMsg}</FormErrorMessage>
+        <FormErrorMessage id={`${name}-error-text`}>
+          {errorMsg}
+        </FormErrorMessage>
       )}
     </FormControl>
   );
@@ -34,6 +45,7 @@ FormGroup.defaultProps = {
   isRequired: true,
   children: undefined,
   component: FormInput,
+  helperText: undefined,
 };
 
 FormGroup.propTypes = {
@@ -44,6 +56,7 @@ FormGroup.propTypes = {
   isRequired: PT.bool,
   children: PT.func,
   component: PT.func,
+  helperText: PT.string,
 };
 
 export default FormGroup;

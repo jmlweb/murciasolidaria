@@ -19,8 +19,8 @@ const Home = () => {
     <MainLayout>
       <Intro onClick={onClick} />
       <Target />
-      <MaskGallery />
       <Buttons onClick={onClick} />
+      <MaskGallery />
     </MainLayout>
   );
 };

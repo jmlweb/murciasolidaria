@@ -86,6 +86,7 @@ const RequestForm = ({ name, email, phone, onSubmit }) => {
                   touched={touched}
                   errors={errors}
                   component={QtyInput}
+                  helperText="Puedes solicitar entre 1 y 500 unidades"
                 />
                 <FormGroup
                   name="priority"
@@ -122,6 +123,7 @@ const RequestForm = ({ name, email, phone, onSubmit }) => {
                   type="email"
                   touched={touched}
                   errors={errors}
+                  helperText="No usaremos tu email con fines comerciales"
                 />
                 <FormGroup
                   name="phone"
@@ -148,7 +150,7 @@ const RequestForm = ({ name, email, phone, onSubmit }) => {
               isDisabled={!isValid}
               type="submit"
             >
-              Solicitar
+              Enviar solicitud
             </Button>
           </Box>
         </Form>

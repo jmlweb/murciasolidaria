@@ -23,13 +23,13 @@ LinkWithIcon.propTypes = {
 
 const DesktopMenu = ({ isLogged }) => (
   <Stack spacing={12} isInline alignItems="center">
-    <LinkWithIcon to={ROUTES.donations} icon={FiHeart}>
+    <LinkWithIcon to={ROUTES.donations} icon={FiHeart} color="red.500">
       Donaciones
     </LinkWithIcon>
-    <LinkWithIcon to={ROUTES.requestMaterial} icon={FiTruck}>
-      Solicitar material
+    <LinkWithIcon to={ROUTES.requestMaterial} icon={FiTruck} color="teal.500">
+      Solicitar pantallas
     </LinkWithIcon>
-    <LinkWithIcon to={ROUTES.about} icon={FiHelpCircle}>
+    <LinkWithIcon to={ROUTES.about} icon={FiHelpCircle} color="gray.600">
       ¿Qué es?
     </LinkWithIcon>
     {isLogged && <UserDropdown />}

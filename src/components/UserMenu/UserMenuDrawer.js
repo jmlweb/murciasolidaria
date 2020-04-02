@@ -64,7 +64,7 @@ const UserMenu = ({ btnRef, onClose, isOpen, onSignOut, name, isAdmin }) => (
             <Badge variantColor="yellow">Pronto</Badge>
           </Flex>
           <LinkWithIcon to={ROUTES.requestMaterial} icon={FiTruck}>
-            Solicitar material
+            Solicitar pantallas
           </LinkWithIcon>
           <LinkWithIcon to={ROUTES.donations} icon={FiHeart} mr={2}>
             Donaciones

@@ -32,21 +32,22 @@ const Donations = () => {
               mb={4}
             >
               <Stack spacing={6}>
-                <Heading as="h1" size="lg" fontSize={['24px', '32px']} mb={2}>
-                  ¿Quieres ayudar a combatir el coronavirus sin tener que salir
-                  de casa?
-                </Heading>
-                <Heading
-                  as="h2"
-                  size="lg"
-                  mb={2}
-                  fontSize={['18px', '24px']}
-                  color="gray.500"
-                >
-                  Dada la situación actual, está resultando difícil encontrar
-                  las materias primas necesarias para fabricar las máscaras de
-                  protección facial, mascarillas, trajes, etc.
-                </Heading>
+                <Box>
+                  <Heading as="h1" size="lg" fontSize={['24px', '32px']} mb={2}>
+                    ¿Quieres ayudar a combatir el coronavirus sin tener que
+                    salir de casa?
+                  </Heading>
+                  <Heading
+                    as="h2"
+                    size="lg"
+                    fontSize={['18px', '24px']}
+                    color="gray.500"
+                  >
+                    Dada la situación actual, está resultando difícil encontrar
+                    las materias primas necesarias para fabricar las máscaras de
+                    protección facial, mascarillas, trajes, etc.
+                  </Heading>
+                </Box>
                 <Text fontSize={['lg', 'lg', 'xl']}>
                   Sobre todo, los plásticos transparentes están cada vez menos
                   disponibles debido a la alta demanda de los diferentes grupos
@@ -129,7 +130,7 @@ const Donations = () => {
                   <Button
                     as="a"
                     href="mailto:hola@murciasolidaria.com"
-                    variantColor="teal"
+                    variantColor="red"
                     size="lg"
                     leftIcon={FiAtSign}
                   >
