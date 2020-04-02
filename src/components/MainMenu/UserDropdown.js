@@ -11,6 +11,8 @@ import {
 } from '@chakra-ui/core';
 import { Link } from 'react-router-dom';
 
+import { ROUTES } from '../../constants';
+
 const UserDropdown = () => {
   const auth = useAuth();
   const { displayName, photoURL, uid } = useUser() || {};
@@ -26,7 +28,7 @@ const UserDropdown = () => {
       </MenuButton>
       <MenuList placement="bottom-end">
         {isAdmin && (
-          <MenuItem as={Link} to="/dashboard">
+          <MenuItem as={Link} to={ROUTES.dashboard}>
             Panel de control
           </MenuItem>
         )}

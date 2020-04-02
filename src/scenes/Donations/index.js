@@ -11,21 +11,18 @@ import {
   Text,
   Stack,
   AspectRatioBox,
+  SimpleGrid,
+  Image,
 } from '@chakra-ui/core';
 import { FiAtSign } from 'react-icons/fi';
 
-import {
-  CommonLink,
-  Container,
-  MainLayout,
-  MaskGallery,
-} from '../../components';
+import { CommonLink, Container, MainLayout } from '../../components';
 
 const Donations = () => {
   const isDesktop = useToggler('lg');
   return (
     <MainLayout>
-      <Stack spacing={10}>
+      <Stack spacing={8}>
         <Box>
           <Container>
             <Stack
@@ -124,8 +121,9 @@ const Donations = () => {
                   <CommonLink href="mailto:hola@murciasolidaria.com">
                     hola@murciasolidaria.com
                   </CommonLink>{' '}
-                  indicando cuál de ellos y en qué formato (grosor, tamaño de
-                  plancha, etc.).
+                  indicando <strong>cuál de ellos</strong> y{' '}
+                  <strong>en qué formato</strong> (grosor, tamaño de plancha,
+                  etc.).
                 </Text>
                 <Box>
                   <Button
@@ -135,7 +133,7 @@ const Donations = () => {
                     size="lg"
                     leftIcon={FiAtSign}
                   >
-                    Contactar para aportar material
+                    Escríbenos un email
                   </Button>
                 </Box>
                 <Text fontSize="xl" fontWeight="bold">
@@ -155,7 +153,18 @@ const Donations = () => {
             </Stack>
           </Container>
         </Box>
-        <MaskGallery />
+        <Container>
+          <SimpleGrid columns={[1, 1, 2]} spacing={8}>
+            <Image
+              src="https://res.cloudinary.com/murciasolidaria/image/upload/c_fill,e_auto_brightness,f_auto,fl_progressive,h_400,w_800/v1585754455/WhatsApp_Image_2020-04-01_at_12.07.06_tn60qy.jpg"
+              alt=""
+            />
+            <Image
+              src="https://res.cloudinary.com/murciasolidaria/image/upload/c_fill,e_auto_brightness,f_auto,fl_progressive,h_400,w_800/v1585754459/WhatsApp_Image_2020-04-01_at_12.07.28_dv5kn9.jpg"
+              alt=""
+            />
+          </SimpleGrid>
+        </Container>
       </Stack>
     </MainLayout>
   );

@@ -25,6 +25,8 @@ import {
 import { Link as RouterLink } from 'react-router-dom';
 import PT from 'prop-types';
 
+import { ROUTES } from '../../constants';
+
 const LinkWithIcon = ({ to, icon, children, ...props }) => (
   <Link as={RouterLink} to={to} fontSize="lg" {...props}>
     <Box display="inline-block" as={icon} /> {children}
@@ -51,23 +53,23 @@ const UserMenu = ({ btnRef, onClose, isOpen, onSignOut, name, isAdmin }) => (
       <DrawerBody as={Flex} alignItems="center" justifyContent="center">
         <Stack spacing={6}>
           {isAdmin && (
-            <LinkWithIcon to="/dashboard" icon={FiSettings}>
+            <LinkWithIcon to={ROUTES.dashboard} icon={FiSettings}>
               Panel de control
             </LinkWithIcon>
           )}
           <Flex alignItems="center">
-            <LinkWithIcon to="/" icon={FiActivity} isDisabled mr={2}>
+            <LinkWithIcon to={ROUTES.home} icon={FiActivity} isDisabled mr={2}>
               Mis Solicitudes
             </LinkWithIcon>
             <Badge variantColor="yellow">Pronto</Badge>
           </Flex>
-          <LinkWithIcon to="/solicitar-material" icon={FiTruck}>
+          <LinkWithIcon to={ROUTES.requestMaterial} icon={FiTruck}>
             Solicitar material
           </LinkWithIcon>
-          <LinkWithIcon to="/donaciones" icon={FiHeart} mr={2}>
+          <LinkWithIcon to={ROUTES.donations} icon={FiHeart} mr={2}>
             Donaciones
           </LinkWithIcon>
-          <LinkWithIcon to="/que-es" icon={FiHelpCircle} mr={2}>
+          <LinkWithIcon to={ROUTES.about} icon={FiHelpCircle} mr={2}>
             ¿Qué es?
           </LinkWithIcon>
         </Stack>

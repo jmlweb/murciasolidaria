@@ -1,10 +1,10 @@
 import React from 'react';
 import { useUser, useFirestore, useAnalytics } from 'reactfire';
 import { propOr } from 'ramda';
-import { Heading, Alert, AlertIcon } from '@chakra-ui/core';
+import { Heading, Alert, AlertIcon, Stack } from '@chakra-ui/core';
 import firebase from 'firebase/app';
 
-import { Container, MainLayout } from '../../components';
+import { Container, MainLayout, MaskGallery } from '../../components';
 import {
   useAlertNotification,
   useLogPage,
@@ -62,28 +62,31 @@ const RequestMaterialContent = () => {
 const RequestMaterial = () => {
   return (
     <MainLayout>
-      <Container>
-        <Heading as="h1" size="lg" fontSize={['24px', '32px']} mb={2}>
-          ¿Eres uno de nuestros héroes?
-        </Heading>
-        <Heading
-          as="h2"
-          size="lg"
-          mb={2}
-          fontSize={['18px', '24px']}
-          color="gray.500"
-        >
-          Si formas parte del colectivo de trabajadores imprescindibles para
-          luchar contra esta pandemia, rellena el siguiente formulario para
-          solicitar pantallas protectoras
-        </Heading>
-        <Alert status="info" fontSize={['md', 'md', 'lg']} mb={[4, 6]}>
-          <AlertIcon />
-          Nuestro equipo se pondrá en contacto contigo a la mayor brevedad
-          posible para concretar los detalles
-        </Alert>
-        <RequestMaterialContent />
-      </Container>
+      <Stack spacing={8}>
+        <Container>
+          <Heading as="h1" size="lg" fontSize={['24px', '32px']} mb={2}>
+            ¿Eres uno de nuestros héroes?
+          </Heading>
+          <Heading
+            as="h2"
+            size="lg"
+            mb={2}
+            fontSize={['18px', '24px']}
+            color="gray.500"
+          >
+            Si formas parte del colectivo de trabajadores imprescindibles para
+            luchar contra esta pandemia, rellena el siguiente formulario para
+            solicitar pantallas protectoras
+          </Heading>
+          <Alert status="info" fontSize={['md', 'md', 'lg']} mb={[4, 6]}>
+            <AlertIcon />
+            Nuestro equipo se pondrá en contacto contigo a la mayor brevedad
+            posible para concretar los detalles
+          </Alert>
+          <RequestMaterialContent />
+        </Container>
+        <MaskGallery />
+      </Stack>
     </MainLayout>
   );
 };

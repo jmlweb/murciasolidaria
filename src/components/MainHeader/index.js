@@ -6,6 +6,8 @@ import Container from '../Container';
 import Logo from '../Logo';
 import MainMenu from '../MainMenu';
 
+import { ROUTES } from '../../constants';
+
 const MainHeader = () => (
   <Container>
     <Flex
@@ -16,7 +18,7 @@ const MainHeader = () => (
       width="100%"
       overflow="hidden"
     >
-      <Link to="/">
+      <Link to={ROUTES.home}>
         <Logo />
       </Link>
       <div>

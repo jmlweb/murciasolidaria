@@ -7,6 +7,8 @@ import PT from 'prop-types';
 import UserDropdown from './UserDropdown';
 import GoogleSignIn from '../GoogleSignin';
 
+import { ROUTES } from '../../constants';
+
 const LinkWithIcon = ({ to, icon, children, ...props }) => (
   <Link as={RouterLink} to={to} fontSize="lg" {...props}>
     <Box display="inline-block" as={icon} /> {children}
@@ -21,13 +23,13 @@ LinkWithIcon.propTypes = {
 
 const DesktopMenu = ({ isLogged }) => (
   <Stack spacing={12} isInline alignItems="center">
-    <LinkWithIcon to="/donaciones" icon={FiHeart}>
+    <LinkWithIcon to={ROUTES.donations} icon={FiHeart}>
       Donaciones
     </LinkWithIcon>
-    <LinkWithIcon to="/solicitar-material" icon={FiTruck}>
+    <LinkWithIcon to={ROUTES.requestMaterial} icon={FiTruck}>
       Solicitar material
     </LinkWithIcon>
-    <LinkWithIcon to="/que-es" icon={FiHelpCircle}>
+    <LinkWithIcon to={ROUTES.about} icon={FiHelpCircle}>
       ¿Qué es?
     </LinkWithIcon>
     {isLogged && <UserDropdown />}

@@ -8,8 +8,26 @@ import {
   ListItem,
   ListIcon,
 } from '@chakra-ui/core';
+import PT from 'prop-types';
 
 import { Container } from '../../components';
+
+const Item = ({ children }) => (
+  <ListItem
+    fontSize="lg"
+    backgroundColor="gray.50"
+    p={4}
+    border="1px solid"
+    borderColor="gray.200"
+    borderRadius="md"
+  >
+    <ListIcon icon="check-circle" color="teal.500" /> {children}
+  </ListItem>
+);
+
+Item.propTypes = {
+  children: PT.node.isRequired,
+};
 
 const Target = () => (
   <Container maxWidth="4xl" mt={8}>
@@ -24,34 +42,14 @@ const Target = () => (
           actual:
         </Text>
         <SimpleGrid as={List} columns={2} spacing={10} mt={4}>
-          <ListItem fontSize="lg">
-            <ListIcon icon="check-circle" color="teal.500" /> Personal sanitario
-          </ListItem>
-          <ListItem fontSize="lg">
-            <ListIcon icon="check-circle" color="teal.500" /> Farmacéuticos
-          </ListItem>
-          <ListItem fontSize="lg">
-            <ListIcon icon="check-circle" color="teal.500" /> Centros de salud
-          </ListItem>
-          <ListItem fontSize="lg">
-            <ListIcon icon="check-circle" color="teal.500" /> Centros de
-            discapacitados
-          </ListItem>
-          <ListItem fontSize="lg">
-            <ListIcon icon="check-circle" color="teal.500" /> Otros centros
-            similares
-          </ListItem>
-          <ListItem fontSize="lg">
-            <ListIcon icon="check-circle" color="teal.500" /> Cuerpos de
-            seguridad
-          </ListItem>
-          <ListItem fontSize="lg">
-            <ListIcon icon="check-circle" color="teal.500" /> Tiendas de
-            alimentación
-          </ListItem>
-          <ListItem fontSize="lg">
-            <ListIcon icon="check-circle" color="teal.500" /> Supermercados
-          </ListItem>
+          <Item>Personal sanitario</Item>
+          <Item>Farmacéuticos</Item>
+          <Item>Centros de salud</Item>
+          <Item>Centros de discapacitados</Item>
+          <Item>Otros centros similares</Item>
+          <Item>Cuerpos de seguridad</Item>
+          <Item>Tiendas de alimentación</Item>
+          <Item>Supermercados</Item>
         </SimpleGrid>
       </Stack>
     </Stack>
