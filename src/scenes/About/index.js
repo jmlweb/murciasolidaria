@@ -2,6 +2,7 @@ import React from 'react';
 import { Heading, Text, Stack } from '@chakra-ui/core';
 
 import { CommonLink, Container, MainLayout } from '../../components';
+import Buttons from './Buttons';
 
 import { useLogPage } from '../../hooks';
 
@@ -62,6 +63,7 @@ const About = () => {
           </Text>
         </Stack>
       </Container>
+      <Buttons />
     </MainLayout>
   );
 };
