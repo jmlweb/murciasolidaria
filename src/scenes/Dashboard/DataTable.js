@@ -9,7 +9,7 @@ import { THead, TBody, Tr, Th, Td } from './styled';
 import StatusesSelector from './StatusesSelector';
 import { REQUEST_STATUSES } from '../../constants';
 
-const FORBIDEN_STATUSES = ['cancelled', 'rejected', 'sent'];
+const FORBIDEN_STATUSES = ['cancelled', 'rejected', 'transferred', 'sent'];
 
 const mustShow = (status, showInactive) =>
   FORBIDEN_STATUSES.includes(status) === showInactive;

@@ -4,5 +4,6 @@ export default {
   prepared: 'Preparado',
   cancelled: 'Cancelado',
   rejected: 'Rechazado',
+  transferred: 'Transferido',
   sent: 'Enviado',
 };
