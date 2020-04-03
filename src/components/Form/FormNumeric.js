@@ -63,7 +63,8 @@ FormNumeric.propTypes = {
     name: PT.string.isRequired,
   }).isRequired,
   form: PT.shape({
-    values: PT.objectOf(PT.oneOfType([PT.string, PT.number])).isRequired,
+    values: PT.objectOf(PT.oneOfType([PT.string, PT.number, PT.bool]))
+      .isRequired,
     setFieldValue: PT.func.isRequired,
   }).isRequired,
   min: PT.number,

@@ -1,18 +1,21 @@
 import React from 'react';
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
-import { Box, Button, Stack } from '@chakra-ui/core';
+import { Box, Button, Stack, Text } from '@chakra-ui/core';
 import PT from 'prop-types';
 import { useMapper } from 'reactponsive';
 import { FiBookOpen, FiUser } from 'react-icons/fi';
 
 import FormCard from './FormCard';
 import {
+  CommonLink,
+  CommonInternalLink,
+  FormCheckbox,
   FormGroup,
   FormNumeric,
   FormPhone,
   FormSelect,
-} from '../../components';
+} from '../../components/index';
 
 const QTY_OPTIONS = {
   min: 1,
@@ -32,6 +35,7 @@ const validationSchema = Yup.object().shape({
   role: Yup.string().required().label('Cargo'),
   area: Yup.string().required().label('Área'),
   phone: Yup.string().required().label('Teléfono'),
+  conditions: Yup.boolean().oneOf([true], 'Por favor, acepta las condiciones'),
 });
 
 const QtyInput = (props) => <FormNumeric {...props} {...QTY_OPTIONS} />;
@@ -64,6 +68,7 @@ const RequestForm = ({ name, email, phone, onSubmit }) => {
     org: '',
     area: '',
     role: '',
+    conditions: false,
   };
   const isInline = useMapper({
     default: false,
@@ -141,6 +146,26 @@ const RequestForm = ({ name, email, phone, onSubmit }) => {
               </Stack>
             </FormCard>
           </Stack>
+          <Box my={6}>
+            <FormCheckbox name="conditions">
+              Acepto el tratamiento de mis datos personales para las finalidades
+              siguientes:
+            </FormCheckbox>
+            <Text fontSize="sm" mt={2}>
+              NIDO ROBOTICS SL, recabará los datos necesarios para poder
+              gestionar la petición de equipos de protección, lo que incluye la
+              comunicación a través de los datos que nos ha facilitado
+              (preferentemente por teléfono). También le informamos de sus
+              derechos de acceso, rectificación, supresión, oposición,
+              limitación, portabilidad y de acudir a la autoridad de control (
+              <CommonLink href="http://www.aepd.es">www.aepd.es</CommonLink>).
+              Para más información, consulte nuestra{' '}
+              <CommonInternalLink to="/politica-privacidad">
+                política de privacidad
+              </CommonInternalLink>
+              .
+            </Text>
+          </Box>
           <Box my={6}>
             <Button
               leftIcon="check-circle"
