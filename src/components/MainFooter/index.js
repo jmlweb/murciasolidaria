@@ -5,6 +5,7 @@ import { useMapper } from 'reactponsive';
 import CommonLink from '../CommonLink';
 import Container from '../Container';
 import Logo from '../Logo';
+import SocialShare from '../SocialShare';
 
 const MainFooter = () => {
   const isInline = useMapper({
@@ -12,9 +13,10 @@ const MainFooter = () => {
     lg: true,
   });
   return (
-    <Container>
+    <Container as="footer">
+      <SocialShare />
+
       <Flex
-        as="footer"
         my={8}
         borderTop="1px solid"
         borderColor="gray.200"
@@ -23,7 +25,13 @@ const MainFooter = () => {
         alignItems="center"
         width="full"
       >
-        <Stack isInline={isInline} spacing={8} alignItems="center" width="full">
+        <Stack
+          isInline
+          justifyContent="center"
+          mt={4}
+          mb={10}
+          spacing={[2, 6, 8]}
+        >
           <Link href="/">
             <Logo size="sm" />
           </Link>
