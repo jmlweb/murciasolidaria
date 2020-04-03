@@ -31,7 +31,7 @@ const SOCIAL_NETWORKS = {
 const SocialShare = () => (
   <Box pt={8} my={8} borderTop="1px solid" borderColor="gray.200">
     <Text width="full" textAlign="center" pb={4}>
-      Compartir:
+      Compartir también es ayudar:
     </Text>
     <Stack isInline justifyContent="center" spacing={[2, 6, 8]}>
       {Object.entries(SOCIAL_NETWORKS).map(([network, { name, icon, url }]) => {
@@ -43,7 +43,10 @@ const SocialShare = () => (
             variantColor={network}
             aria-label={title}
             title={title}
-            href={url('https://murciasolidaria.com/')}
+            href={url(
+              'https://murciasolidaria.com/',
+              'La iniciativa "Murcia solidaria" crea material de protección sanitario contra el Coronavirus ¿Conoces a alguien que lo necesite? Compartir también es ayudar.',
+            )}
             target="_blank"
             rel="noreferrer noopener"
             key={network}
