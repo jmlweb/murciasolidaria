@@ -11,10 +11,12 @@ const options = Object.keys(REQUEST_STATUSES).map((key) => ({
 
 const StatusesSelector = ({ status, updateFn }) => {
   const onChange = (e) => {
-    updateFn(e.target.value);
+    updateFn({
+      status: e.target.value,
+    });
   };
   return (
-    <Select defaultValue={status} onChange={onChange}>
+    <Select defaultValue={status} onChange={onChange} variant="filled">
       {options.map(({ label, value }) => (
         <option key={label} value={value}>
           {label}

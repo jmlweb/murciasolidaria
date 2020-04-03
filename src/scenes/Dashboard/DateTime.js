@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box } from '@chakra-ui/core';
+import { Box, Stack } from '@chakra-ui/core';
 import PT from 'prop-types';
 
 function toDateTime(secs) {
@@ -8,15 +8,17 @@ function toDateTime(secs) {
   return t;
 }
 
-const DateTime = ({ seconds }) => {
+const DateTime = ({ seconds, ...props }) => {
   const dateTime = toDateTime(seconds);
   return (
-    <>
-      <Box fontWeight="bold" color="gray.500">
+    <Stack isInline spacing={1} alignItems="center" {...props}>
+      <Box fontWeight="bold" color="gray.500" fontSize="sm">
         {dateTime.toLocaleDateString('es-ES')}
       </Box>
-      <Box fontSize="xs">{dateTime.toLocaleTimeString()}</Box>
-    </>
+      <Box fontSize="xs" pt="0.2rem">
+        {dateTime.toLocaleTimeString()}
+      </Box>
+    </Stack>
   );
 };
 

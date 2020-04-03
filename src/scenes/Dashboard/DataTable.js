@@ -1,12 +1,12 @@
 import React from 'react';
-import { Box, Flex, Link } from '@chakra-ui/core';
+import { Box, Stack, Link, Grid, IconButton } from '@chakra-ui/core';
 import PT from 'prop-types';
 
-import { CommonLink } from '../../components';
 import DateTime from './DateTime';
 import PriorityTag from './PriorityTag';
-import { THead, TBody, Tr, Th, Td } from './styled';
 import StatusesSelector from './StatusesSelector';
+import Comments from './Comments';
+import { CommonLink } from '../../components';
 import { REQUEST_STATUSES } from '../../constants';
 
 const FORBIDEN_STATUSES = ['cancelled', 'rejected', 'transferred', 'sent'];
@@ -18,80 +18,76 @@ const DataTable = ({
   materialRequests,
   createStatusUpdateFn,
   showInactive,
+  deleteFn,
 }) => (
-  <Flex
-    flexDirection="column"
-    flex={1}
-    maxWidth="100%"
-    width="100%"
-    overflowX="auto"
-    borderRadius={4}
-    border="1px"
-    borderColor="gray.200"
-    boxShadow="0 3px 8px rgba(0, 0, 0, 0.1)"
-  >
-    <Box as="table" width="full" table-layout="auto" border-collapse="collapse">
-      <THead>
-        <Tr>
-          <Th>Fecha</Th>
-          <Th>Nombre</Th>
-          <Th>Email</Th>
-          <Th>Teléfono</Th>
-          <Th>Centro</Th>
-          <Th textAlign="center">Cantidad</Th>
-          <Th textAlign="center">Prioridad</Th>
-          <Th textAlign="center">Estado</Th>
-        </Tr>
-      </THead>
-      <TBody>
-        {materialRequests.map(
-          (item) =>
-            mustShow(item.status, showInactive) && (
-              <Tr key={item.id}>
-                <Td fontSize="sm">
-                  <DateTime seconds={item.createdAt.seconds} />
-                </Td>
-                <Td>
-                  <Box as="strong" fontWeight="600">
-                    {item.name}
-                  </Box>
-                </Td>
-                <Td fontSize="sm">
-                  <CommonLink
-                    title="Enviar email"
-                    href={`mailto:${item.email}`}
-                  >
-                    {item.email}
-                  </CommonLink>
-                </Td>
-                <Td fontSize="sm">
-                  <Link href={`tel:${item.phone}`}>{item.phone}</Link>
-                </Td>
-                <Td>{item.org}</Td>
-                <Td textAlign="center">
-                  <Box as="strong" color="orange.500">
-                    {item.qty}
-                  </Box>
-                </Td>
-                <Td textAlign="center">
-                  <PriorityTag priority={item.priority} />
-                </Td>
-                <Td textAlign="center">
-                  <StatusesSelector
-                    status={item.status}
-                    updateFn={createStatusUpdateFn(item.id)}
-                  />
-                </Td>
-              </Tr>
-            ),
-        )}
-      </TBody>
-    </Box>
-  </Flex>
+  <Stack spacing={4}>
+    {materialRequests.map(
+      (item) =>
+        mustShow(item.status, showInactive) && (
+          <Grid
+            templateColumns={`250px 1fr 250px 120px 40px 70px 150px${
+              showInactive ? ' 50px' : ''
+            }`}
+            alignItems="center"
+            key={item.id}
+            borderBottom="1px"
+            borderColor="gray.200"
+            pb={4}
+          >
+            <Box gridColumn="1 / -1">
+              <Stack isInline spacing={4} alignItems="center">
+                <DateTime seconds={item.createdAt.seconds} />
+              </Stack>
+            </Box>
+            <Box as="strong" fontWeight="600">
+              {item.name}
+            </Box>
+            <Box ml={4}>{item.org}</Box>
+            <Box ml={4} overflow="hidden" textOverflow="ellipsis">
+              <CommonLink href={`mailto:${item.email}`}>
+                {item.email}
+              </CommonLink>
+            </Box>
+            <Box ml={4}>
+              <Link href={`tel:${item.phone}`}>{item.phone}</Link>
+            </Box>
+            <Box ml={4} as="strong" color="orange.500" textAlign="right">
+              {item.qty}
+            </Box>
+            <Box ml={4} textAlign="center">
+              <PriorityTag priority={item.priority} />
+            </Box>
+            <Box ml={4}>
+              <StatusesSelector
+                status={item.status}
+                updateFn={createStatusUpdateFn(item.id)}
+              />
+            </Box>
+            {showInactive && (
+              <Box ml={4}>
+                <IconButton
+                  variantColor="red"
+                  aria-label="Borrar solicitud"
+                  icon="small-close"
+                  onClick={deleteFn(item.id)}
+                />
+              </Box>
+            )}
+            <Box gridColumn="1 / -1" mt={2}>
+              <Comments
+                value={item.comments}
+                updateFn={createStatusUpdateFn(item.id)}
+              />
+            </Box>
+          </Grid>
+        ),
+    )}
+  </Stack>
 );
 
 DataTable.defaultProps = {
   showInactive: false,
+  deleteFn: undefined,
 };
 
 DataTable.propTypes = {
@@ -102,6 +98,7 @@ DataTable.propTypes = {
   ).isRequired,
   createStatusUpdateFn: PT.func.isRequired,
   showInactive: PT.bool,
+  deleteFn: PT.func,
 };
 
 export default DataTable;

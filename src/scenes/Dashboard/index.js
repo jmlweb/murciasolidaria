@@ -15,8 +15,8 @@ const Dashboard = () => {
   const { docs } = useFirestoreCollection(
     firestore
       .collection('material-requests')
-      .orderBy('createdAt', 'desc')
-      .limit(100),
+      .limit(100)
+      .orderBy('createdAt', 'desc'),
   );
   const materialRequests = useMemo(
     () =>
@@ -30,18 +30,29 @@ const Dashboard = () => {
   const notify = useAlertNotification({
     title: 'Ha habido un problema al actualizar el estado.',
   });
-  const createStatusUpdateFn = (id) => async (newStatus) => {
+  const createUpdateFn = (id) => async (newValues) => {
     const ref = firestore.collection('material-requests').doc(id);
     try {
-      await ref.update({
-        status: newStatus,
-      });
+      return await ref.update(newValues);
     } catch (e) {
       notify({
         description: e.message,
       });
       errorNotifier(e);
     }
+    return false;
+  };
+  const deleteFn = (id) => async () => {
+    const ref = firestore.collection('material-requests').doc(id);
+    try {
+      return await ref.delete();
+    } catch (e) {
+      notify({
+        description: e.message,
+      });
+      errorNotifier(e);
+    }
+    return false;
   };
   return (
     <MainLayout>
@@ -55,14 +66,15 @@ const Dashboard = () => {
             <TabPanel>
               <DataTable
                 materialRequests={materialRequests}
-                createStatusUpdateFn={createStatusUpdateFn}
+                createStatusUpdateFn={createUpdateFn}
               />
             </TabPanel>
             <TabPanel>
               <DataTable
                 materialRequests={materialRequests}
-                createStatusUpdateFn={createStatusUpdateFn}
+                createStatusUpdateFn={createUpdateFn}
                 showInactive
+                deleteFn={deleteFn}
               />
             </TabPanel>
           </TabPanels>

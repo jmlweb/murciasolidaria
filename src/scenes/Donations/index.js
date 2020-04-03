@@ -199,22 +199,22 @@ const Donations = () => {
               No obstante, dadas las especialidades sanitarias y la situación
               actual de los proveedores del material, pueden producirse los
               siguientes escenarios:
+              <List as="ol" styleType="decimal">
+                <ListItem>
+                  Que dada la alta demanda de peticiones de materiales plásticos
+                  no pueda producirse un suministro o abastecimiento suficiente
+                  para los creadores del proyecto MurciaSolidaria, lo que puede
+                  derivar en la imposibilidad en la fabricación de las
+                  protecciones.
+                </ListItem>
+                <ListItem>
+                  Que dadas las especificaciones técnicas y de homologación a
+                  los que son sometidos estos productos “anti-contagio”, puedan
+                  no servir para el fin último que se persiguen, siendo estos
+                  desechados por la entidad para los que se fabricaron.
+                </ListItem>
+              </List>
             </Text>
-            <List as="ol">
-              <ListItem>
-                Que dada la alta demanda de peticiones de materiales plásticos
-                no pueda producirse un suministro o abastecimiento suficiente
-                para los creadores del proyecto MurciaSolidaria, lo que puede
-                derivar en la imposibilidad en la fabricación de las
-                protecciones.
-              </ListItem>
-              <ListItem>
-                Que dadas las especificaciones técnicas y de homologación a los
-                que son sometidos estos productos “anti-contagio”, puedan no
-                servir para el fin último que se persiguen, siendo estos
-                desechados por la entidad para los que se fabricaron.
-              </ListItem>
-            </List>
             <Text>
               Si los responsables del proyecto se encontraran en alguna de las
               situaciones anteriores, en ningún momento se devolverá el dinero
