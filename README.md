@@ -27,3 +27,4 @@ Este proyecto usa las siguientes tecnologías como base:
 - José Manuel Lucas (jmlweb)
 - Ibon Conesa (ibonkonesa)
 - Jorge González (boton)
+- Eva Janeiro (EvaJaneiro)
