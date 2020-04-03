@@ -26,3 +26,4 @@ Este proyecto usa las siguientes tecnologías como base:
 - Nido Robotics
 - José Manuel Lucas (jmlweb)
 - Ibon Conesa (ibonkonesa)
+- Jorge González (boton)
