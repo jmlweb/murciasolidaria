@@ -1,11 +1,18 @@
 import React from 'react';
 import { Link } from '@chakra-ui/core';
 import PT from 'prop-types';
+import { Link as RouterLink } from 'react-router-dom';
+
+const StyledLink = (props) => <Link color="teal.500" {...props} />;
 
 const CommonLink = ({ href, isExternal, children }) => (
-  <Link href={href} isExternal={isExternal} color="teal.500">
+  <StyledLink href={href} isExternal={isExternal}>
     {children}
-  </Link>
+  </StyledLink>
+);
+
+export const CommonInternalLink = (props) => (
+  <StyledLink as={RouterLink} {...props} />
 );
 
 CommonLink.defaultProps = {

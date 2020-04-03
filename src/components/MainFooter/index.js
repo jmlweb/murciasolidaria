@@ -1,11 +1,12 @@
 import React from 'react';
-import { Flex, Link, Text, Stack } from '@chakra-ui/core';
+import { Link, Text, Stack } from '@chakra-ui/core';
 import { useMapper } from 'reactponsive';
 
-import CommonLink from '../CommonLink';
+import { CommonInternalLink } from '../CommonLink';
 import Container from '../Container';
 import Logo from '../Logo';
 import SocialShare from '../SocialShare';
+import { ROUTES } from '../../constants';
 
 const MainFooter = () => {
   const isInline = useMapper({
@@ -15,8 +16,8 @@ const MainFooter = () => {
   return (
     <Container as="footer">
       <SocialShare />
-
-      <Flex
+      <Stack
+        isInline={isInline}
         my={8}
         borderTop="1px solid"
         borderColor="gray.200"
@@ -24,33 +25,29 @@ const MainFooter = () => {
         justifyContent="space-between"
         alignItems="center"
         width="full"
+        spacing={[2, 6, 8]}
       >
-        <Stack
-          isInline
-          justifyContent="center"
-          mt={4}
-          mb={10}
-          spacing={[2, 6, 8]}
-        >
-          <Link href="/">
-            <Logo size="sm" />
-          </Link>
-          <Stack isInline={isInline} spacing={4} alignItems="center">
-            <Text>
-              Organiza:{' '}
-              <CommonLink href="https://nidorobotics.com">
-                Nido Robotics
-              </CommonLink>
-            </Text>
-            <Text>
-              Desarrolla:{' '}
-              <CommonLink href="https://jmlweb.es">
-                José Manuel Lucas
-              </CommonLink>
-            </Text>
-          </Stack>
+        <Link href="/">
+          <Logo size="sm" />
+        </Link>
+        <Stack isInline={isInline} spacing={4} alignItems="center">
+          <Text>
+            <CommonInternalLink to={ROUTES.legalWarning}>
+              Aviso legal
+            </CommonInternalLink>
+          </Text>
+          <Text>
+            <CommonInternalLink to={ROUTES.privacy}>
+              Política de privacidad
+            </CommonInternalLink>
+          </Text>
+          <Text>
+            <CommonInternalLink to={ROUTES.cookies}>
+              Política de cookies
+            </CommonInternalLink>
+          </Text>
         </Stack>
-      </Flex>
+      </Stack>
     </Container>
   );
 };

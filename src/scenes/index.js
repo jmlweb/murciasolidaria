@@ -9,6 +9,8 @@ const About = lazy(() => import('./About'));
 const Dashboard = lazy(() => import('./Dashboard'));
 const Donations = lazy(() => import('./Donations'));
 const Home = lazy(() => import('./Home'));
+const LegalWarning = lazy(() => import('./LegalWarning'));
+const Privacy = lazy(() => import('./Privacy'));
 const RequestMaterial = lazy(() => import('./RequestMaterial'));
 
 const Scenes = () => {
@@ -39,6 +41,8 @@ const Scenes = () => {
           <Route path={ROUTES.dashboard} component={Dashboard} />
           <Route path={ROUTES.donations} component={Donations} />
           <Route path={ROUTES.requestMaterial} component={RequestMaterial} />
+          <Route path={ROUTES.legalWarning} component={LegalWarning} />
+          <Route path={ROUTES.privacy} component={Privacy} />
           <Route component={Home} />
         </Switch>
       </Router>

@@ -1,9 +1,12 @@
 const ROUTES = {
   about: '/que-es',
+  cookies: '/politica-cookies',
   dashboard: '/dashboard',
   donations: '/donaciones',
-  requestMaterial: '/solicitar-material',
   home: '/',
+  legalWarning: '/aviso-legal',
+  privacy: '/politica-privacidad',
+  requestMaterial: '/solicitar-material',
 };
 
 export default ROUTES;
