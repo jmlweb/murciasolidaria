@@ -195,10 +195,12 @@ const Donations = () => {
               protecciones como con recursos económicos que se invertirán en la
               adquisición de dicho material.
             </Text>
-            <Text>
-              No obstante, dadas las especialidades sanitarias y la situación
-              actual de los proveedores del material, pueden producirse los
-              siguientes escenarios:
+            <Box>
+              <Text>
+                No obstante, dadas las especialidades sanitarias y la situación
+                actual de los proveedores del material, pueden producirse los
+                siguientes escenarios:
+              </Text>
               <List as="ol" styleType="decimal">
                 <ListItem>
                   Que dada la alta demanda de peticiones de materiales plásticos
@@ -214,7 +216,7 @@ const Donations = () => {
                   desechados por la entidad para los que se fabricaron.
                 </ListItem>
               </List>
-            </Text>
+            </Box>
             <Text>
               Si los responsables del proyecto se encontraran en alguna de las
               situaciones anteriores, en ningún momento se devolverá el dinero

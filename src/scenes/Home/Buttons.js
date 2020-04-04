@@ -25,7 +25,7 @@ const Buttons = () => (
         variantColor="teal"
       >
         <Box as={FiTruck} display="inline-block" mr={1} />
-        Solicitar pantallas
+        Solicitar
       </Button>
     </Stack>
   </Container>

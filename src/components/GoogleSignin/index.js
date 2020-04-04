@@ -1,13 +1,14 @@
 import React from 'react';
-import { Avatar, Button } from '@chakra-ui/core';
+import { Button } from '@chakra-ui/core';
+import { IoLogoGoogle } from 'react-icons/io';
 
 import { useGoogleSignin } from '../../hooks';
 
 const GoogleSignIn = () => {
   const onClick = useGoogleSignin();
   return (
-    <Button onClick={onClick} variant="ghost" padding={0}>
-      <Avatar size="sm" />
+    <Button variantColor="red" onClick={onClick} leftIcon={IoLogoGoogle}>
+      Login
     </Button>
   );
 };
