@@ -17,7 +17,7 @@ service cloud.firestore {
     }
     match /material-requests/{material_request_id} {
       allow read: if isAdmin();
-      allow create: if isAdmin() || request.resource.data.uid == request.auth.uid;
+      allow create: if true;
       allow update: if isAdmin() || request.resource.data.uid == request.auth.uid;
       allow delete: if isAdmin();
     }
