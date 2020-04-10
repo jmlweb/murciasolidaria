@@ -11,7 +11,7 @@ const Donations = () => (
     <Container>
       <Stack spacing={12}>
         <Stack spacing={4}>
-          <Heading as="h1" size="lg" fontSize={['24px', '32px']}>
+          <Heading as="h1">
             ¿Quieres ayudar a combatir el coronavirus sin tener que salir de
             casa?
           </Heading>

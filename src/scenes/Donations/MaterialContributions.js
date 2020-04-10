@@ -12,12 +12,13 @@ import {
   Image,
 } from '@chakra-ui/core';
 import { useToggler } from 'reactponsive';
+import { FiAtSign } from 'react-icons/fi';
 
 const FinantialContributions = () => {
   const isTablet = useToggler('md');
   return (
     <Stack isInline={isTablet} spacing={6} id="donaciones-material">
-      <Stack spacing={4}>
+      <Stack spacing={4} flex={1}>
         <Heading as="h2" size="lg" fontSize={['24px', '32px']}>
           El material que no estás usando puede salvar vidas
         </Heading>
@@ -86,12 +87,13 @@ const FinantialContributions = () => {
             href="mailto:hola@murciasolidaria.com"
             variantColor="red"
             size="lg"
+            leftIcon={FiAtSign}
           >
             Escríbenos un email
           </Button>
         </Box>
       </Stack>
-      <Stack spacing={2} minWidth={['360px', '360px', '300px', '360px']}>
+      <Stack spacing={2} width={['360px', '360px', '300px', '360px']} mx="auto">
         <Image
           src="https://res.cloudinary.com/murciasolidaria/image/upload/c_fill,f_auto,fl_progressive,h_240,w_360/v1585754455/WhatsApp_Image_2020-04-01_at_12.07.06_tn60qy.jpg"
           alt=""

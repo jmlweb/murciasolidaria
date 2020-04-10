@@ -6,14 +6,14 @@ const IntroBox = ({ title, children, buttons, ...props }) => (
   <Stack
     flex={1}
     p={4}
-    bg="teal.50"
+    bg="gray.50"
     border="1px solid"
-    borderColor="teal.300"
+    borderColor="gray.200"
     borderRadius="md"
     spacing={4}
     {...props}
   >
-    <Heading as="h2" size="lg" fontSize={['20px', '26px']} color="gray.600">
+    <Heading as="h2" size="lg" fontSize={['24px', '30px']} color="gray.600">
       {title}
     </Heading>
     <Stack spacing={2} flex={1}>
@@ -25,6 +25,7 @@ const IntroBox = ({ title, children, buttons, ...props }) => (
           rel="external"
           target="_blank"
           variantColor="red"
+          leftIcon={buttons.primary.icon}
         >
           {buttons.primary.title}
         </Button>

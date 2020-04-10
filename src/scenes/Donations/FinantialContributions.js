@@ -67,6 +67,7 @@ const FinantialContributions = () => {
             target="_blank"
             variantColor="red"
             size="lg"
+            leftIcon="arrow-forward"
           >
             Visita la campaña en GoFundMe
           </Button>
