@@ -5,8 +5,8 @@ import { Link as RouterLink } from 'react-router-dom';
 
 const StyledLink = (props) => <Link color="teal.500" {...props} />;
 
-const CommonLink = ({ href, isExternal, children }) => (
-  <StyledLink href={href} isExternal={isExternal}>
+const CommonLink = ({ href, isExternal, children, ...props }) => (
+  <StyledLink href={href} isExternal={isExternal} {...props}>
     {children}
   </StyledLink>
 );
