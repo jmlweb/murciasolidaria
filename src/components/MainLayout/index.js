@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid } from '@chakra-ui/core';
+import { Box, Grid } from '@chakra-ui/core';
 import PT from 'prop-types';
 
 import MainHeader from '../MainHeader';
@@ -12,7 +12,7 @@ const HeaderContentLayout = ({ children }) => (
     minHeight="100%"
   >
     <MainHeader />
-    <main>{children}</main>
+    <Box as="main">{children}</Box>
     <MainFooter />
   </Grid>
 );

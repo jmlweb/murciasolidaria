@@ -5,6 +5,7 @@ import { Container, MainLayout } from '../../components';
 import Intro from './Intro';
 import FinantialContributions from './FinantialContributions';
 import MaterialContributions from './MaterialContributions';
+import MasksContributions from './MasksContributions';
 
 const Donations = () => (
   <MainLayout>
@@ -24,6 +25,9 @@ const Donations = () => (
         </Box>
         <Box borderTop="1px solid" borderColor="gray.200" pt={8}>
           <MaterialContributions />
+        </Box>
+        <Box borderTop="1px solid" borderColor="gray.200" pt={8}>
+          <MasksContributions />
         </Box>
         <Box borderTop="1px solid" borderColor="gray.200" pt={8}>
           <Stack spacing={4}>

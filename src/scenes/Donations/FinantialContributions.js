@@ -52,11 +52,11 @@ const FinantialContributions = () => {
           También aceptamos{' '}
           <Link href="#donaciones-material" color="teal.500">
             donaciones de material
-          </Link>
-          {/* o{' '}
+          </Link>{' '}
+          o{' '}
           <Link href="#donaciones-pantallas" color="teal.500">
             de pantallas fabricadas por ti
-          </Link> */}
+          </Link>
           . ¡Gracias por tu ayuda!
         </Text>
         <Box textAlign={['center', 'center', 'left']}>
