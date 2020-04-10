@@ -15,6 +15,7 @@ import { FiAtSign } from 'react-icons/fi';
 import IntroBox from './IntroBox';
 
 const Intro = () => {
+  const isTablet = useToggler('md');
   const isDesktop = useToggler('lg');
   return (
     <Stack spacing={8}>
@@ -94,7 +95,7 @@ const Intro = () => {
           </List>
         </IntroBox>
       </Stack>
-      <Stack isInline={isDesktop} spacing={6}>
+      <Stack isInline={isTablet} spacing={6}>
         <Box
           overflow="hidden"
           borderRadius="lg"

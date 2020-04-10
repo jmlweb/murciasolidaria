@@ -59,7 +59,7 @@ const FinantialContributions = () => {
           </Link> */}
           . ¡Gracias por tu ayuda!
         </Text>
-        <Box>
+        <Box textAlign={['center', 'center', 'left']}>
           <Button
             as="a"
             href="https://www.gofundme.com/f/material-para-2000-pantallas-protectoras?utm_source=customer&utm_medium=copy_link-tip&utm_campaign=p_cp+share-sheet"

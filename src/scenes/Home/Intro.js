@@ -1,7 +1,15 @@
 import React, { Suspense, lazy, memo } from 'react';
-import { Box, Button, Flex, Heading, Text, useTheme } from '@chakra-ui/core';
+import {
+  Box,
+  Button,
+  Flex,
+  Heading,
+  Stack,
+  Text,
+  useTheme,
+} from '@chakra-ui/core';
 import { Link as ReactRouterLink } from 'react-router-dom';
-import { FiTruck } from 'react-icons/fi';
+import { FiHeart, FiTruck } from 'react-icons/fi';
 import PT from 'prop-types';
 
 import { Container } from '../../components';
@@ -48,7 +56,7 @@ const Intro = () => {
               Te ofrecemos PANTALLAS PROTECTORAS para desempeñar tu trabajo con
               seguridad.{' '}
             </Text>
-            <Flex justifyContent="center">
+            <Stack isInline justifyContent="center">
               <Button
                 size="lg"
                 as={ReactRouterLink}
@@ -58,7 +66,16 @@ const Intro = () => {
                 <Box as={FiTruck} display="inline-block" mr={1} />
                 Solicitar pantallas
               </Button>
-            </Flex>
+              <Button
+                size="lg"
+                as={ReactRouterLink}
+                to={ROUTES.donations}
+                variantColor="red"
+              >
+                <Box as={FiHeart} display="inline-block" mr={1} />
+                Donaciones
+              </Button>
+            </Stack>
           </Box>
         </Flex>
       </Box>

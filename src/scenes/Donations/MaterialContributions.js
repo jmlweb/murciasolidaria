@@ -81,7 +81,7 @@ const FinantialContributions = () => {
             </ListItem>
           </List>
         </Box>
-        <Box>
+        <Box textAlign={['center', 'center', 'left']}>
           <Button
             as="a"
             href="mailto:hola@murciasolidaria.com"

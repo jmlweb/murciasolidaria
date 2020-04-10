@@ -4,7 +4,6 @@ import { useHistory } from 'react-router-dom';
 import { MainLayout, MaskGallery } from '../../components';
 import { useGoogleSignin, useLogPage } from '../../hooks';
 import Intro from './Intro';
-import Buttons from './Buttons';
 import Target from './Target';
 
 const Home = () => {
@@ -18,8 +17,7 @@ const Home = () => {
   return (
     <MainLayout>
       <Intro onClick={onClick} />
-      <Target />
-      <Buttons onClick={onClick} />
+      <Target onClick={onClick} />
       <MaskGallery />
     </MainLayout>
   );
