@@ -25,9 +25,9 @@ const IntroImage = () => {
       alt="Cortadora láser Nido Robotics"
       objectFit="cover"
       objectPosition="center center"
-      position={['absolute', 'absolute', 'relative']}
+      position="absolute"
       top={0}
-      height={['100%', '100%', '656px']}
+      height="100%"
       width="full"
       maxWidth="100%"
     />

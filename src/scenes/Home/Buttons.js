@@ -1,29 +1,29 @@
 import React, { memo } from 'react';
-import { Box, Button, Stack } from '@chakra-ui/core';
+import { Button, Stack } from '@chakra-ui/core';
 import { Link as ReactRouterLink } from 'react-router-dom';
 import { FiHeart, FiTruck } from 'react-icons/fi';
 
 import { ROUTES } from '../../constants';
 
 const Buttons = () => (
-  <Stack isInline justifyContent="center" mt={4} mb={10} spacing={[2, 6, 8]}>
-    <Button
-      size="lg"
-      as={ReactRouterLink}
-      to={ROUTES.donations}
-      variantColor="red"
-    >
-      <Box as={FiHeart} display="inline-block" mr={1} />
-      Donaciones
-    </Button>
+  <Stack isInline justifyContent="center" mt={4} mb={10} spacing={2}>
     <Button
       size="lg"
       as={ReactRouterLink}
       to={ROUTES.requestMaterial}
       variantColor="teal"
+      leftIcon={FiTruck}
     >
-      <Box as={FiTruck} display="inline-block" mr={1} />
-      Solicitar
+      Solicitar pantallas
+    </Button>
+    <Button
+      size="lg"
+      as={ReactRouterLink}
+      to={ROUTES.donations}
+      variantColor="red"
+      leftIcon={FiHeart}
+    >
+      Donaciones
     </Button>
   </Stack>
 );

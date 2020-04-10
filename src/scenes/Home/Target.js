@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+  Badge,
   Box,
   Heading,
   Text,
@@ -13,16 +14,10 @@ import PT from 'prop-types';
 import { useToggler } from 'reactponsive';
 
 import { Container } from '../../components';
+import Buttons from './Buttons';
 
 const Item = ({ children }) => (
-  <ListItem
-    fontSize="lg"
-    backgroundColor="gray.50"
-    p={4}
-    border="1px solid"
-    borderColor="gray.200"
-    borderRadius="md"
-  >
+  <ListItem fontSize="lg">
     <ListIcon icon="info" color="teal.500" /> {children}
   </ListItem>
 );
@@ -40,13 +35,13 @@ const Target = () => {
           <Heading as="h3" size="lg" fontSize="24px">
             ¿A quién va dirigida esta iniciativa?
           </Heading>
-          <Stack spacing={6}>
+          <Stack spacing={4}>
             <Text fontSize={['lg', 'lg', 'xl']}>
               Pueden solicitar sus pantallas protectoras todos aquellos
               colectivos que desempeñen un trabajo imprescindible en el estado
               de alarma actual:
             </Text>
-            <SimpleGrid as={List} columns={[1, 1, 2]} spacing={4} mt={4} pb={6}>
+            <SimpleGrid as={List} columns={[1, 1, 2, 2, 3]} spacing={4} pb={6}>
               <Item>Personal sanitario</Item>
               <Item>Farmacéuticos</Item>
               <Item>Centros de salud</Item>
@@ -56,12 +51,37 @@ const Target = () => {
               <Item>Tiendas de alimentación</Item>
               <Item>Supermercados</Item>
             </SimpleGrid>
+            <Text fontSize="lg">
+              Con la iniciativa de murciasolidaria.com pretendemos ayudar a
+              todas aquellas personas que cada día se juegan la vida y las de su
+              entorno para luchar contra esta pandemia.{' '}
+            </Text>
+            <Text fontSize="lg">
+              <strong>
+                ¡Entre todos conseguiremos ganarle la batalla al Coronavirus!
+              </strong>
+            </Text>
+            <Buttons />
           </Stack>
         </Stack>
         <Stack spacing={2}>
           <Heading as="h3" size="lg" fontSize="24px">
             Ayúdanos a ayudar
           </Heading>
+          <Badge
+            variantColor="yellow"
+            py={2}
+            px={4}
+            mt={1}
+            fontSize="md"
+            width="full"
+            maxW="360px"
+            mx="auto"
+            textAlign="center"
+            borderRadius="lg"
+          >
+            ES60 2100 1130 3102 0003 7540
+          </Badge>
           <Box
             as="embed"
             width={['360px', '360px', '300px', '360px']}

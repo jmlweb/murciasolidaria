@@ -29,12 +29,12 @@ const Intro = () => {
   return (
     <Container>
       <Box position="relative" maxWidth="100%">
-        <Suspense fallback={<Box height={['auto', 'auto', '656px']} />}>
+        <Suspense fallback={null}>
           <IntroImage />
         </Suspense>
         <Box position="absolute" {...fillProps} bg="teal.900" opacity={0.8} />
         <Flex
-          position={['relative', 'relative', 'absolute']}
+          position="relative"
           {...fillProps}
           justifyContent="center"
           alignItems="center"
@@ -43,6 +43,7 @@ const Intro = () => {
           <Box
             maxWidth={[`calc(100vw - ${theme.space[6]})`, 'containers.lg']}
             p={6}
+            py={[6, 8, '80px']}
             textAlign="center"
           >
             <Heading as="h2" mb={2}>
