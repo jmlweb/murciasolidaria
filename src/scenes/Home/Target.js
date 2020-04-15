@@ -37,9 +37,9 @@ const Target = () => {
           </Heading>
           <Stack spacing={4}>
             <Text fontSize={['lg', 'lg', 'xl']}>
-              Pueden solicitar sus pantallas protectoras todos aquellos
-              colectivos que desempeñen un trabajo imprescindible en el estado
-              de alarma actual:
+              Pueden solicitar sus pantallas protectoras de forma gratuita todos
+              aquellos colectivos que desempeñen un trabajo imprescindible en el
+              estado de alarma actual:
             </Text>
             <SimpleGrid as={List} columns={[1, 1, 2, 2, 3]} spacing={4} pb={6}>
               <Item>Personal sanitario</Item>

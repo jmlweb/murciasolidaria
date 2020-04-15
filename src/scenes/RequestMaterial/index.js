@@ -76,7 +76,7 @@ const RequestMaterial = () => {
           >
             Si formas parte del colectivo de trabajadores imprescindibles para
             luchar contra esta pandemia, rellena el siguiente formulario para
-            solicitar pantallas protectoras
+            solicitar pantallas protectoras GRATIS
           </Heading>
           <Alert status="info" fontSize={['md', 'md', 'lg']} mb={[4, 6]}>
             <AlertIcon />

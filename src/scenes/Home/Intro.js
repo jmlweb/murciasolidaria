@@ -42,8 +42,8 @@ const Intro = () => {
               Coronavirus con las medidas de protección que se merecen.{' '}
             </Text>
             <Text fontSize="2xl" mb={6}>
-              Te ofrecemos pantallas protectoras para desempeñar tu trabajo con
-              seguridad.{' '}
+              Te ofrecemos pantallas protectoras GRATIS para desempeñar tu
+              trabajo con seguridad.{' '}
             </Text>
             <Stack isInline={isTablet} justifyContent="center">
               <Button
