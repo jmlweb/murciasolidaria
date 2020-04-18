@@ -6,6 +6,7 @@ import DateTime from './DateTime';
 import PriorityTag from './PriorityTag';
 import StatusesSelector from './StatusesSelector';
 import Comments from './Comments';
+import Address from './Address';
 import { CommonLink } from '../../components';
 import { REQUEST_STATUSES } from '../../constants';
 
@@ -74,10 +75,20 @@ const DataTable = ({
               </Box>
             )}
             <Box gridColumn="1 / -1" mt={2}>
-              <Comments
-                value={item.comments}
-                updateFn={createStatusUpdateFn(item.id)}
-              />
+              <Stack spacing={4} isInline>
+                <Box>
+                  <Address
+                    value={item.address}
+                    updateFn={createStatusUpdateFn(item.id)}
+                  />
+                </Box>
+                <Box>
+                  <Comments
+                    value={item.comments}
+                    updateFn={createStatusUpdateFn(item.id)}
+                  />
+                </Box>
+              </Stack>
             </Box>
           </Grid>
         ),
