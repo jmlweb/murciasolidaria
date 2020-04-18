@@ -26,6 +26,7 @@ const FormSelect = ({ field, options }) => (
     id={field.name}
     {...field}
     aria-describedby={`${field.name}-helper-text`}
+    width="full"
   >
     {options.map((opt) => (
       <FormSelectOption key={getOptKey('value')(opt)} opt={opt} />

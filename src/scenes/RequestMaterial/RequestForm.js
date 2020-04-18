@@ -1,7 +1,7 @@
 import React from 'react';
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
-import { Box, Button, Stack, Text } from '@chakra-ui/core';
+import { Box, Button, Stack, Text, SimpleGrid } from '@chakra-ui/core';
 import PT from 'prop-types';
 import { useMapper } from 'reactponsive';
 import { FiBookOpen, FiUser } from 'react-icons/fi';
@@ -33,7 +33,7 @@ const validationSchema = Yup.object().shape({
     .label('Cantidad'),
   org: Yup.string().required().label('Centro'),
   role: Yup.string().required().label('Cargo'),
-  area: Yup.string().required().label('Área'),
+  area: Yup.string().label('Área'),
   phone: Yup.string().required().label('Teléfono'),
   conditions: Yup.boolean().oneOf([true], 'Por favor, acepta las condiciones'),
 });
@@ -67,6 +67,7 @@ const RequestForm = ({ name, email, phone, onSubmit }) => {
     priority: 'mid',
     org: '',
     area: '',
+    address: '',
     role: '',
     conditions: false,
   };
@@ -85,30 +86,40 @@ const RequestForm = ({ name, email, phone, onSubmit }) => {
           <Stack spacing={6} isInline={isInline}>
             <FormCard title="Datos de la solicitud" icon={FiBookOpen}>
               <Stack spacing={6}>
-                <FormGroup
-                  name="qty"
-                  label="¿Cuántas unidades necesitas"
-                  touched={touched}
-                  errors={errors}
-                  component={QtyInput}
-                  helperText="Puedes solicitar entre 1 y 500 unidades"
-                />
-                <FormGroup
-                  name="priority"
-                  label="Urgencia de la solicitud"
-                  touched={touched}
-                  errors={errors}
-                  component={PrioritySelect}
-                />
+                <SimpleGrid spacing={6} columns={[1, 2]}>
+                  <FormGroup
+                    name="qty"
+                    label="Nº unidades"
+                    touched={touched}
+                    errors={errors}
+                    component={QtyInput}
+                    helperText="Puedes solicitar entre 1 y 500"
+                  />
+                  <FormGroup
+                    name="priority"
+                    label="Urgencia de la solicitud"
+                    touched={touched}
+                    errors={errors}
+                    component={PrioritySelect}
+                  />
+                </SimpleGrid>
                 <FormGroup
                   name="org"
-                  label="Centro para el que se solicita"
+                  label="Nombre del centro"
                   touched={touched}
                   errors={errors}
                 />
                 <FormGroup
                   name="area"
-                  label="Área dentro del centro de trabajo"
+                  label="Área dentro del centro"
+                  isRequired={false}
+                  placeholder="Necesario en caso de hospital, etc"
+                  touched={touched}
+                  errors={errors}
+                />
+                <FormGroup
+                  name="address"
+                  label="Dirección para el envío"
                   touched={touched}
                   errors={errors}
                 />

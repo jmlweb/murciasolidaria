@@ -2,10 +2,11 @@ import React from 'react';
 import { Input } from '@chakra-ui/core';
 import PT from 'prop-types';
 
-const FormInput = ({ field }) => (
+const FormInput = ({ field, ...rest }) => (
   <Input
     id={field.name}
     {...field}
+    {...rest}
     aria-describedby={`${field.name}-helper-text`}
   />
 );
