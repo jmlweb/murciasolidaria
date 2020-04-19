@@ -21,5 +21,9 @@ service cloud.firestore {
       allow update: if isAdmin() || request.resource.data.uid == request.auth.uid;
       allow delete: if isAdmin();
     }
+    match /config/{id} {
+      allow read: if true;
+      allow update: if true;
+    }
   }
 }

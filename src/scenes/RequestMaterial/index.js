@@ -35,7 +35,7 @@ const RequestMaterialContent = () => {
         ...values,
         createdAt: firebase.firestore.FieldValue.serverTimestamp(),
         uid,
-        loggedInEmai: email,
+        loggedInEmail: email,
         status: 'requested',
       });
       notify({
