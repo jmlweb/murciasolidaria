@@ -9,6 +9,7 @@ import {
   Input,
   InputRightElement,
   Link,
+  IconButton,
 } from '@chakra-ui/core';
 import { FiMapPin } from 'react-icons/fi';
 
@@ -66,16 +67,20 @@ AddressForm.propTypes = {
 const AddressText = ({ toggle, value }) => (
   <Stack isInline spacing={1} alignItems="center">
     {value ? (
-      <Button
-        as={Link}
-        href={`https://www.google.com/maps/search/?api=1&query=${value}`}
-        rel="external"
-        target="_blank"
-        size="sm"
-        leftIcon={FiMapPin}
-      >
-        {value}
-      </Button>
+      <>
+        <IconButton onClick={toggle} size="sm" icon="edit" />
+        <Button
+          as={Link}
+          href={`https://www.google.com/maps/search/?api=1&query=${value}`}
+          rel="external"
+          target="_blank"
+          size="sm"
+          leftIcon={FiMapPin}
+          bg="yellow.100"
+        >
+          {value}
+        </Button>
+      </>
     ) : (
       <Button onClick={toggle} size="sm" leftIcon={FiMapPin}>
         Sin dirección

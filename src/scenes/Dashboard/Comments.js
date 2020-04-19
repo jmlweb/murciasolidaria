@@ -5,11 +5,9 @@ import * as Yup from 'yup';
 import {
   Button,
   Stack,
-  IconButton,
   InputGroup,
   Input,
   InputRightElement,
-  Text,
 } from '@chakra-ui/core';
 
 const validationSchema = Yup.object().shape({
@@ -66,16 +64,13 @@ CommentsForm.propTypes = {
 const CommentsText = ({ toggle, value }) => (
   <Stack isInline spacing={2} alignItems="center">
     {value ? (
-      <IconButton icon="edit" size="sm" onClick={toggle} />
+      <Button onClick={toggle} size="sm" leftIcon="edit" bg="teal.100">
+        {value}
+      </Button>
     ) : (
       <Button onClick={toggle} size="sm" leftIcon="edit">
         Sin comentarios
       </Button>
-    )}
-    {value && (
-      <Text backgroundColor="teal.100" fontSize="sm" px={2} py={1}>
-        {value}
-      </Text>
     )}
   </Stack>
 );
