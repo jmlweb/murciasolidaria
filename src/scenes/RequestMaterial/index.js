@@ -1,10 +1,22 @@
 import React from 'react';
 import { useUser, useFirestore, useAnalytics } from 'reactfire';
 import { propOr } from 'ramda';
-import { Heading, Alert, AlertIcon, Stack } from '@chakra-ui/core';
+import { Link as ReactRouterLink } from 'react-router-dom';
+import {
+  Button,
+  Heading,
+  Alert,
+  AlertIcon,
+  AlertTitle,
+  AlertDescription,
+  Stack,
+  Flex,
+} from '@chakra-ui/core';
 import firebase from 'firebase/app';
+import { FiHeart } from 'react-icons/fi';
 
 import { Container, MainLayout, MaskGallery } from '../../components';
+import { ROUTES } from '../../constants';
 import {
   useAlertNotification,
   useLogPage,
@@ -66,6 +78,8 @@ const RequestMaterialContent = () => {
   );
 };
 
+RequestMaterialContent.displayName = 'RequestMaterialContent';
+
 const RequestMaterial = () => {
   return (
     <MainLayout>
@@ -85,12 +99,50 @@ const RequestMaterial = () => {
             luchar contra esta pandemia, rellena el siguiente formulario para
             solicitar pantallas protectoras GRATIS
           </Heading>
-          <Alert status="info" fontSize={['md', 'md', 'lg']} mb={[4, 6]}>
+          {/* <Alert status="info" fontSize={['md', 'md', 'lg']} mb={[4, 6]}>
             <AlertIcon />
             Nuestro equipo se pondrá en contacto contigo a la mayor brevedad
             posible para concretar los detalles
+          </Alert> */}
+          <Alert
+            status="error"
+            variant="subtle"
+            flexDirection="column"
+            justifyContent="center"
+            textAlign="center"
+            mb={[4, 6]}
+            py={6}
+          >
+            <AlertIcon size="40px" mr={0} />
+            <AlertTitle mt={4} mb={1} fontSize="xl">
+              ¡Lo sentimos!
+            </AlertTitle>
+            <AlertDescription
+              maxWidth="lg"
+              textAlign="left"
+              mb={2}
+              fontSize="lg"
+            >
+              En este momento la demanda ha superado nuestras existencias y no
+              podemos servir más pantallas temporalmente.
+            </AlertDescription>
+            <AlertDescription maxWidth="lg" textAlign="left" fontSize="lg">
+              Con tu contribución, podremos continuar fabricando pantallas para
+              los que más las necesitan.
+            </AlertDescription>
           </Alert>
-          <RequestMaterialContent />
+          {/* <RequestMaterialContent /> */}
+          <Flex justifyContent="center" alignItems="center" mb={8}>
+            <Button
+              size="lg"
+              as={ReactRouterLink}
+              to={ROUTES.donations}
+              variantColor="red"
+              leftIcon={FiHeart}
+            >
+              Donaciones
+            </Button>
+          </Flex>
         </Container>
         <MaskGallery />
       </Stack>
