@@ -3,10 +3,16 @@ import { useFirestore, useFirestoreCollection } from 'reactfire';
 import { Tabs, TabList, TabPanels, Tab, TabPanel } from '@chakra-ui/core';
 
 import { Container, MainLayout } from '../../components';
-import { useAlertNotification, useErrorNotifier } from '../../hooks';
+import {
+  useAlertNotification,
+  useErrorNotifier,
+  useCounters,
+} from '../../hooks';
 import DataTable from './DataTable';
 
 const Dashboard = () => {
+  const counters = useCounters();
+  console.log(counters);
   const errorNotifier = useErrorNotifier({
     severity: 'error',
     component: 'dashboard',
@@ -15,7 +21,7 @@ const Dashboard = () => {
   const { docs } = useFirestoreCollection(
     firestore
       .collection('material-requests')
-      .limit(100)
+      .limit(200)
       .orderBy('createdAt', 'desc'),
   );
   const materialRequests = useMemo(

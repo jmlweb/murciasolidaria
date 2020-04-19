@@ -9,6 +9,7 @@ import {
   useAlertNotification,
   useLogPage,
   useErrorNotifier,
+  useCounters,
 } from '../../hooks';
 
 import RequestForm from './RequestForm';
@@ -23,6 +24,7 @@ const RequestMaterialContent = () => {
   const phone = safeProp('phoneNumber', user);
   const uid = safeProp('uid', user);
   const firestore = useFirestore();
+  const counters = useCounters();
   const notify = useAlertNotification();
   const errorNotifier = useErrorNotifier({
     severity: 'error',
@@ -37,6 +39,11 @@ const RequestMaterialContent = () => {
         uid,
         loggedInEmail: email,
         status: 'requested',
+      });
+      const countersRef = firestore.collection('config').doc('counters');
+      await countersRef.update({
+        ...counters,
+        requested: counters.requested + values.qty,
       });
       notify({
         title: 'La petición se ha creado correctamente',
